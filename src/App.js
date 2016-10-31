@@ -1,18 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import firebase, { teamRef } from './firebase';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: null,
+      athletes: null
+    };
+  }
+
+  componentWillMount() {
+    this.reference.on('value', (snapshot) => {
+      let athletes = snapshot.val();
+      this.setState({athletes: athletes});
+    });
+  }
+
+  get reference() {
+    const team = 'team';
+    return firebase.database().ref(`teams/0/${team}/athletes/`);
+  }
+
+  fetchAllTeamData() {
+    const { athletes } = this.state
+    return(
+      <li>
+        {athletes[0].firstName} {athletes[0].lastName}
+      </li>
+    )
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>BlueCoach</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <ul>{(this.state.athletes) ? this.fetchAllTeamData() : <li>yo</li>}</ul>
       </div>
     );
   }
