@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import firebase, { teamRef } from './firebase';
+import firebase from './firebase';
+import split from 'split-object';
 import './App.css';
 
 class App extends Component {
@@ -12,22 +13,21 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.reference.on('value', (snapshot) => {
+    const team = 'ssst';
+    firebase.database().ref(`teams/${team}/athletes`).on('value', (snapshot) => {
       let athletes = snapshot.val();
+      split(athletes).map(athlete => { athletes = Object.assign({ key: athlete.key }, athlete.value); });
       this.setState({athletes: athletes});
+      console.log(athletes);
     });
   }
 
-  get reference() {
-    const team = 'team';
-    return firebase.database().ref(`teams/0/${team}/athletes/`);
-  }
 
   fetchAllTeamData() {
-    const { athletes } = this.state
+    const { athletes } = this.state;
     return(
       <li>
-        {athletes[0].firstName} {athletes[0].lastName}
+        {/* {athletes[0].firstName} {athletes[0].lastName} */}
       </li>
     )
   }
