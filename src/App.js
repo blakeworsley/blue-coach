@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import './App.css';
-import SignIn from './components/SignIn';
-import CoachDashboard from './components/CoachDashboard';
+import Authenticate from './components/Authenticate';
+import Dashboard from './components/Dashboard';
 import Athlete from './components/Athlete';
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
       );
     } else {
       return (
-        <SignIn />
+        <Authenticate />
       );
     }
   }

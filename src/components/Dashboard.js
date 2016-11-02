@@ -5,7 +5,7 @@ import { map } from 'lodash';
 import '../App.css';
 import Athletes from './Athletes';
 
-class CoachDashboard extends Component {
+class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
@@ -48,4 +48,4 @@ class CoachDashboard extends Component {
   }
 }
 
-export default CoachDashboard;
+export default Dashboard;
