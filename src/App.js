@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import './App.css';
 import Login from './components/Login';
-import Dashboard from './components/Dashboard';
 import Athlete from './components/Athlete';
 
 class App extends Component {

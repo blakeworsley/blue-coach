@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import firebase from '../firebase';
-import split from 'split-object';
-import { map } from 'lodash';
 
 class Register extends Component {
   constructor(props) {

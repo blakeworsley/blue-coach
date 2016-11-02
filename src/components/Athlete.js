@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import firebase from '../firebase';
-import split from 'split-object';
 import { map } from 'lodash';
 import Athletes from './Athletes';
 
@@ -25,10 +24,6 @@ class Athlete extends Component {
     });
   }
 
-
-
-
-
   render() {
     const renderAthletes = map(this.state.athletes, (athlete) => {
       console.log(athlete);
@@ -45,7 +40,7 @@ class Athlete extends Component {
       <div>
         <h1>{this.state.athlete.firstName + ' ' + this.state.athlete.lastName}</h1>
         <p>Data about athlete goes here</p>
-        <button onClick={() => { firebase.auth().signOut() }}>Sign Out</button>
+        {renderAthletes}
       </div>
     );
   }

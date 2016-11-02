@@ -23,7 +23,10 @@ class Dashboard extends Component {
     });
   }
 
-  
+  signOut(){
+    firebase.auth().signOut();
+    this.context.router.transitionTo("/login");
+  }
 
 
   render() {
@@ -42,7 +45,7 @@ class Dashboard extends Component {
       <div>
         <h1>Coach Dashboard</h1>
         <ul>{renderAthletes}</ul>
-        <button onClick={() => { firebase.auth().signOut() }}>Sign Out</button>
+        <button onClick={() => this.signOut()}>Sign Out</button>
       </div>
     );
   }

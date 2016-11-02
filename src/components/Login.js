@@ -14,8 +14,8 @@ class Login extends Component {
   }
 
   login() {
-  const {emailAddress, password} = this.state;
-  firebase.auth().signInWithEmailAndPassword(emailAddress, password)
+    const {emailAddress, password} = this.state;
+    firebase.auth().signInWithEmailAndPassword(emailAddress, password)
     .catch((error) => {
       console.log(error);
     });
