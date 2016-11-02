@@ -38,6 +38,7 @@ class SignIn extends Component {
             <input value={password}
               onChange={(event) => this.setState({password: event.target.value})}
               placeholder='Password'
+              type='password'
             />
             <button onClick={() => this.login()}>Log In</button>
             <button onClick={() => this.setState({ register: true })}>Register</button>

@@ -60,6 +60,7 @@ class Register extends Component {
         <input value={password}
           onChange={(event) => this.setState({password: event.target.value})}
           placeholder='Password'
+          type='password'
         />
         <input value={teamName}
           onChange={(event) => this.setState({teamName: event.target.value})}
