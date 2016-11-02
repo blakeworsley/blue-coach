@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import Athlete from './components/Athlete';
+import Athletes from './components/Athletes';
 import Navigation from './components/Navigation';
 import NoMatch from './components/NoMatch';
 import './index.css';
@@ -17,10 +18,11 @@ const Root = () => {
       <section>
         <Navigation />
         <Match exactly pattern="/" component={App}/>
-        <Match pattern="/login" component={Login} />
-        <Match pattern="/register" component={Register} />
-        <Match pattern="/dashboard" component={Dashboard} />
-        <Match pattern="/athlete" component={Athlete} />
+        <Match exactly pattern="/login" component={Login} />
+        <Match exactly pattern="/register" component={Register} />
+        <Match exactly pattern="/dashboard" component={Dashboard} />
+        <Match exactly pattern="/athletes" component={Athletes} />
+        <Match pattern="/athletes/:athlete" component={Athlete} />
         <Miss component={NoMatch} />
       </section>
     </BrowserRouter>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import './App.css';
 import Login from './components/Login';
-import Athlete from './components/Athlete';
+import Dashboard from './components/Dashboard';
 
 class App extends Component {
   constructor() {
@@ -19,9 +19,10 @@ class App extends Component {
   }
 
   render() {
-    if(this.state.user){
+    const { user } = this.state;
+    if(user){
       return (
-        <Athlete />
+        <Dashboard user={user}/>
       );
     } else {
       return (

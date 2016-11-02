@@ -6,10 +6,10 @@ import '../App.css';
 import Athletes from './Athletes';
 
 class Dashboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      user: null,
+      user: this.props.user,
       athletes: null
     };
   }
@@ -25,6 +25,7 @@ class Dashboard extends Component {
 
   signOut(){
     firebase.auth().signOut();
+
     this.context.router.transitionTo("/login");
   }
 
@@ -41,14 +42,20 @@ class Dashboard extends Component {
         />
       )
     })
+
     return (
       <div>
+        {this.state.user ? this.state.user.email : null}
         <h1>Coach Dashboard</h1>
         <ul>{renderAthletes}</ul>
         <button onClick={() => this.signOut()}>Sign Out</button>
       </div>
     );
   }
+}
+
+Dashboard.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default Dashboard;

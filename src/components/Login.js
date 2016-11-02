@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import firebase from 'firebase';
 import Register from './Register';
 
@@ -18,7 +19,8 @@ class Login extends Component {
     firebase.auth().signInWithEmailAndPassword(emailAddress, password)
     .catch((error) => {
       console.log(error);
-    });
+    })
+    .then(this.context.router.transitionTo("/dashboard"));
   }
 
   render() {
@@ -41,12 +43,16 @@ class Login extends Component {
               type='password'
             />
             <button onClick={() => this.login()}>Log In</button>
-            <button onClick={() => this.setState({ register: true })}>Register</button>
+            <Link to={"/register"}><button>Register</button></Link>
           </div>
         </div>
       );
     }
   }
+}
+
+Login.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default Login;
