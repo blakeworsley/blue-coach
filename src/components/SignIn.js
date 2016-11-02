@@ -1,50 +1,34 @@
 import React, { Component } from 'react';
-import firebase from '../firebase';
-import split from 'split-object';
-import { map } from 'lodash';
-import '../App.css';
-import Athlete from './Athlete';
+import Register from './Register';
 
 class SignIn extends Component {
   constructor() {
     super();
     this.state = {
       user: null,
-      athletes: null
+      emailAddress: '',
+      password: '',
+      register: false,
     };
   }
 
-  componentWillMount() {
-    const team = 'ssst';
-    firebase.database().ref(`teams/${team}/athletes`).on('value', (snapshot) => {
-      let athletes = snapshot.val();
-      split(athletes).map(athlete => { Object.assign({ key: athlete.key }, athlete.value); });
-      this.setState({athletes: athletes});
-      console.log(athletes);
-    });
-  }
-
-
   render() {
-    const renderAthletes = map(this.state.athletes, (athlete) => {
-      console.log(athlete);
-      return(
-        <Athlete key={athlete.firstName + athlete.lastName + athlete.teamName}
-          firstName={athlete.firstName}
-          lastName={athlete.lastName}
-          teamName={athlete.teamName}
-          email={athlete.emailAddress}
-        />
-      )
-    })
-    return (
-      <div>
+    if (this.state.register) {
+      return( <Register /> )
+    }
+    else {
+      return (
         <div>
-          <h2>BlueCoach</h2>
+          <div>
+            <h2>SignIn</h2>
+            <input placeholder='Email'/>
+            <input placeholder='Password'/>
+
+          <button onClick={() => this.setState({ register: true })}> Register </button>
+          </div>
         </div>
-        <ul>{renderAthletes}</ul>
-      </div>
-    );
+      );
+    }
   }
 }
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import './App.css';
 import SignIn from './components/SignIn';
-import Register from './components/Register';
+import CoachDashboard from './components/CoachDashboard';
 
 class App extends Component {
   constructor() {
@@ -12,17 +13,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.setState({user: 'Coach'});
+    firebase.auth().onAuthStateChanged( (user) =>  {
+      this.setState({user});
+    });
   }
 
   render() {
     if(this.state.user){
       return (
-        <SignIn />
+        <CoachDashboard />
       );
     } else {
       return (
-        <Register />
+        <SignIn />
       );
     }
   }

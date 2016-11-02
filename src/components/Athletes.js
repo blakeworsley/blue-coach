@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Athlete extends Component {
+export default class Athletes extends Component {
   render(){
     const {firstName, lastName, teamName, email} = this.props;
     return (
