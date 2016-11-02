@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import './App.css';
-import Authenticate from './components/Authenticate';
+import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Athlete from './components/Athlete';
 
@@ -26,7 +26,7 @@ class App extends Component {
       );
     } else {
       return (
-        <Authenticate />
+        <Login />
       );
     }
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import App from './App';
-import Authenticate from './components/Authenticate';
+import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import Navigation from './components/Navigation';
@@ -16,7 +16,7 @@ const Root = () => {
       <section>
         <Navigation />
         <Match exactly pattern="/" component={App}/>
-        <Match pattern="/login" component={Authenticate} />
+        <Match pattern="/login" component={Login} />
         <Match pattern="/register" component={Register} />
         <Match pattern="/dashboard" component={Dashboard} />
         <Miss component={NoMatch} />

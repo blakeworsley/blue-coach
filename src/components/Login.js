@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import Register from './Register';
 
-class Authenticate extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -30,7 +30,7 @@ class Authenticate extends Component {
       return (
         <div>
           <div>
-            <h2>Authenticate</h2>
+            <h2>Login</h2>
             <input value={emailAddress}
               onChange={(event) => this.setState({emailAddress: event.target.value})}
               placeholder='Email'
@@ -49,4 +49,4 @@ class Authenticate extends Component {
   }
 }
 
-export default Authenticate;
+export default Login;
