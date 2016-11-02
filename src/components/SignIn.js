@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import Register from './Register';
 
 class SignIn extends Component {
@@ -12,8 +13,17 @@ class SignIn extends Component {
     };
   }
 
+  login() {
+  const {emailAddress, password} = this.state;
+  firebase.auth().signInWithEmailAndPassword(emailAddress, password)
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   render() {
-    if (this.state.register) {
+    const {emailAddress, password, register} = this.state;
+    if (register) {
       return( <Register /> )
     }
     else {
@@ -21,10 +31,16 @@ class SignIn extends Component {
         <div>
           <div>
             <h2>SignIn</h2>
-            <input placeholder='Email'/>
-            <input placeholder='Password'/>
-
-          <button onClick={() => this.setState({ register: true })}> Register </button>
+            <input value={emailAddress}
+              onChange={(event) => this.setState({emailAddress: event.target.value})}
+              placeholder='Email'
+            />
+            <input value={password}
+              onChange={(event) => this.setState({password: event.target.value})}
+              placeholder='Password'
+            />
+            <button onClick={() => this.login()}>Log In</button>
+            <button onClick={() => this.setState({ register: true })}>Register</button>
           </div>
         </div>
       );

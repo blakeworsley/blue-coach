@@ -20,9 +20,10 @@ class CoachDashboard extends Component {
       let athletes = snapshot.val();
       split(athletes).map(athlete => { Object.assign({ key: athlete.key }, athlete.value); });
       this.setState({athletes: athletes});
-      console.log(athletes);
     });
   }
+
+  
 
 
   render() {

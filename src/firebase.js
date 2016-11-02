@@ -10,7 +10,4 @@ const config = {
 
 firebase.initializeApp(config);
 
-export const teamRef = firebase.database().ref('teams');
-export const usersRef = firebase.database().ref('users');
-export const swimmerRef = firebase.database().ref('teams/0/team/athletes');
 export default firebase;

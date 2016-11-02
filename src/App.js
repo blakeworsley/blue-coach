@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import './App.css';
 import SignIn from './components/SignIn';
 import CoachDashboard from './components/CoachDashboard';
+import Athlete from './components/Athlete';
 
 class App extends Component {
   constructor() {
@@ -21,7 +22,7 @@ class App extends Component {
   render() {
     if(this.state.user){
       return (
-        <CoachDashboard />
+        <Athlete />
       );
     } else {
       return (
