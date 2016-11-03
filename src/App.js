@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import './App.css';
-import SignIn from './components/SignIn';
-import CoachDashboard from './components/CoachDashboard';
+import { Link, Redirect } from 'react-router';
 
 class App extends Component {
   constructor() {
@@ -19,13 +18,17 @@ class App extends Component {
   }
 
   render() {
-    if(this.state.user){
+    const { user } = this.state;
+    if(user){
       return (
-        <CoachDashboard />
+        <Redirect to={{ pathname: '/dashboard'}}/>
       );
     } else {
       return (
-        <SignIn />
+        <section>
+          <h1>Blue</h1>
+          <Link to="/login"><button>Login</button></Link>
+        </section>
       );
     }
   }

@@ -5,23 +5,27 @@ import { map } from 'lodash';
 import '../App.css';
 import Athletes from './Athletes';
 
-class CoachDashboard extends Component {
-  constructor() {
-    super();
+class Dashboard extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      user: null,
+      user: this.props.user,
       athletes: null
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const team = 'ssst';
     firebase.database().ref(`teams/${team}/athletes`).on('value', (snapshot) => {
       let athletes = snapshot.val();
       split(athletes).map(athlete => { Object.assign({ key: athlete.key }, athlete.value); });
       this.setState({athletes: athletes});
-      console.log(athletes);
     });
+  }
+
+  signOut(){
+    firebase.auth().signOut();
+    this.context.router.transitionTo("/login");
   }
 
 
@@ -37,14 +41,20 @@ class CoachDashboard extends Component {
         />
       )
     })
+
     return (
       <div>
+        {this.state.user ? this.state.user.email : null}
         <h1>Coach Dashboard</h1>
         <ul>{renderAthletes}</ul>
-        <button onClick={() => { firebase.auth().signOut() }}>Sign Out</button>
+        <button onClick={() => this.signOut()}>Sign Out</button>
       </div>
     );
   }
 }
 
-export default CoachDashboard;
+Dashboard.contextTypes = {
+  router: React.PropTypes.object
+}
+
+export default Dashboard;

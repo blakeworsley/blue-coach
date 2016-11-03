@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import firebase from '../firebase';
-import split from 'split-object';
-import { map } from 'lodash';
 
 class Register extends Component {
   constructor(props) {
@@ -60,6 +58,7 @@ class Register extends Component {
         <input value={password}
           onChange={(event) => this.setState({password: event.target.value})}
           placeholder='Password'
+          type='password'
         />
         <input value={teamName}
           onChange={(event) => this.setState({teamName: event.target.value})}
