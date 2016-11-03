@@ -18,9 +18,9 @@ const Root = () => {
       <section>
         <Navigation />
         <Match exactly pattern="/" component={App} />
+        <Match exactly pattern="/dashboard" component={Dashboard} />
         <Match exactly pattern="/login" component={Login} />
         <Match exactly pattern="/register" component={Register} />
-        <Match exactly pattern="/dashboard" component={Dashboard} />
         <Match exactly pattern="/athletes" component={Athletes} />
         <Match pattern="/dashboard/:athlete" component={Athlete} />
         <Miss component={NoMatch} />

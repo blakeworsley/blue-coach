@@ -16,9 +16,6 @@ class Dashboard extends Component {
 
   componentDidMount() {
     const team = 'ssst';
-    firebase.auth().onAuthStateChanged( (user) =>  {
-      this.setState({user});
-    });
     firebase.database().ref(`teams/${team}/athletes`).on('value', (snapshot) => {
       let athletes = snapshot.val();
       split(athletes).map(athlete => { Object.assign({ key: athlete.key }, athlete.value); });
