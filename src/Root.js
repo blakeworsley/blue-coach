@@ -17,7 +17,7 @@ const Root = () => {
     <BrowserRouter history={history}>
       <section>
         <Navigation />
-        <Match exactly pattern="/" component={App}/>
+        <Match exactly pattern="/" component={App} />
         <Match exactly pattern="/login" component={Login} />
         <Match exactly pattern="/register" component={Register} />
         <Match exactly pattern="/dashboard" component={Dashboard} />

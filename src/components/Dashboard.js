@@ -14,8 +14,11 @@ class Dashboard extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const team = 'ssst';
+    firebase.auth().onAuthStateChanged( (user) =>  {
+      this.setState({user});
+    });
     firebase.database().ref(`teams/${team}/athletes`).on('value', (snapshot) => {
       let athletes = snapshot.val();
       split(athletes).map(athlete => { Object.assign({ key: athlete.key }, athlete.value); });
@@ -25,7 +28,6 @@ class Dashboard extends Component {
 
   signOut(){
     firebase.auth().signOut();
-
     this.context.router.transitionTo("/login");
   }
 

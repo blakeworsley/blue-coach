@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import firebase from 'firebase';
-import Register from './Register';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      user: null,
       emailAddress: '',
       password: '',
-      register: false,
     };
   }
 
@@ -24,30 +21,25 @@ class Login extends Component {
   }
 
   render() {
-    const {emailAddress, password, register} = this.state;
-    if (register) {
-      return( <Register /> )
-    }
-    else {
-      return (
+    const {emailAddress, password} = this.state;
+    return (
+      <div>
         <div>
-          <div>
-            <h2>Login</h2>
-            <input value={emailAddress}
-              onChange={(event) => this.setState({emailAddress: event.target.value})}
-              placeholder='Email'
-            />
-            <input value={password}
-              onChange={(event) => this.setState({password: event.target.value})}
-              placeholder='Password'
-              type='password'
-            />
-            <button onClick={() => this.login()}>Log In</button>
-            <Link to={"/register"}><button>Register</button></Link>
-          </div>
+          <h2>Login</h2>
+          <input value={emailAddress}
+            onChange={(event) => this.setState({emailAddress: event.target.value})}
+            placeholder='Email'
+          />
+          <input value={password}
+            onChange={(event) => this.setState({password: event.target.value})}
+            placeholder='Password'
+            type='password'
+          />
+          <button onClick={() => this.login()}>Log In</button>
+          <Link to={"/register"}><button>Register</button></Link>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 
