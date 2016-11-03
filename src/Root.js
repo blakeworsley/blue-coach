@@ -22,7 +22,7 @@ const Root = () => {
         <Match exactly pattern="/register" component={Register} />
         <Match exactly pattern="/dashboard" component={Dashboard} />
         <Match exactly pattern="/athletes" component={Athletes} />
-        <Match pattern="/athletes/:athlete" component={Athlete} />
+        <Match pattern="/dashboard/:athlete" component={Athlete} />
         <Miss component={NoMatch} />
       </section>
     </BrowserRouter>

@@ -9,7 +9,10 @@ class Athlete extends Component {
     this.state = {
       coach: {teamName: 'SSST'},
       // needs to come from props ^^^
+
+
       athlete: {firstName: 'Ross', lastName: 'Edfort'},
+      routeName: {firstName: 'Ross', lastName: 'Edfort'},
       // needs to come from props ^^^
     };
   }
@@ -17,12 +20,25 @@ class Athlete extends Component {
   componentWillMount() {
     const team = `${this.state.coach.teamName}`;
     // from this.state.coach login // SSST
-    const swimmerName = `${this.state.athlete.firstName.toLowerCase()}-${this.state.athlete.lastName.toLowerCase()}`;
+    const swimmerName = `${this.state.routeName.firstName.toLowerCase()}-${this.state.routeName.lastName.toLowerCase()}`;
     //from this.state.athlete // ross-edfort
-    firebase.database().ref(`workouts/${team}/${swimmerName}`).on('value', (snapshot) => {
+    firebase.database().ref(`workouts/${team}/${this.props.params.athlete}`).on('value', (snapshot) => {
       console.log(snapshot.val());
     });
   }
+
+  athleteName() {
+    const athlete = this.props.params.athlete;
+    const re = /(.+)-(.+)/gi;
+    const arr = re.exec(athlete);
+    this.setState( { routeName: {firstName: arr[1], lastName: arr[2]} });
+    this.getAthleteData();
+  }
+
+  getAthleteData() {
+    console.log(this.state.athlete);
+  }
+
 
   render() {
     const renderAthletes = map(this.state.athletes, (athlete) => {
@@ -40,6 +56,7 @@ class Athlete extends Component {
       <div>
         <h1>{this.state.athlete.firstName + ' ' + this.state.athlete.lastName}</h1>
         <p>Data about athlete goes here</p>
+        <button onClick={() => this.athleteName()}>Athlete</button>
         {renderAthletes}
       </div>
     );
