@@ -1,37 +1,45 @@
-import React, { Component } from 'react';
-import firebase from 'firebase';
-import './App.css';
-import { Link, Redirect } from 'react-router';
+import React, { PropTypes } from 'react';
+import Match from 'react-router/Match';
+import Link from 'react-router/Link';
+import Redirect from 'react-router/Redirect';
+import Router from 'react-router/BrowserRouter';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: null,
-    };
-  }
+import authenticate from './components/Authentication';
+import Dashboard from './components/Dashboard';
+import MatchWhenAuthorized from './components/MatchWhenAuthorized';
+import Login from './components/Login';
 
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged( (user) =>  {
-      this.setState({user});
-    });
-  }
+const App = () => (
+  <Router>
+    {({ router }) => (
+      <div>
+        {authenticate.isAuthenticated ? (
+          <p>
+            Welcome! {' '}
+            <button onClick={() => {
+              authenticate.signout(() => {
+                router.transitionTo('/')
+              })
+            }}>Sign out</button>
+          </p>
+        ) : (
+          <p>You are not logged in.</p>
+        )}
 
-  render() {
-    const { user } = this.state;
-    if(user){
-      return (
-        <Redirect to={{ pathname: '/dashboard'}}/>
-      );
-    } else {
-      return (
-        <section>
-          <h1>Blue</h1>
-          <Link to="/login"><button>Login</button></Link>
-        </section>
-      );
-    }
-  }
-}
+        <ul>
+          <li><Link to="/public">Public Page</Link></li>
+          <li><Link to="/protected">Protected Page</Link></li>
+        </ul>
 
-export default App;
+        <Match pattern="/public" component={Public}/>
+        <Match pattern="/login" component={Login}/>
+        <MatchWhenAuthorized pattern="/protected" component={Dashboard}/>
+      </div>
+    )}
+  </Router>
+)
+
+const Public = () => <h3>Public</h3>
+
+
+export default App
