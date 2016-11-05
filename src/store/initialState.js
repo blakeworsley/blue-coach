@@ -3,5 +3,9 @@ export const initialState = {
     status: 'ANONYMOUS',
     username: null,
     uid: null
+  },
+  athletes: {
+    status: 'NO_ATHLETES',
+    athletes: []
   }
 };

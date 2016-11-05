@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router';
 
 import * as actions from '../actions/authenticate';
 
-export class Login extends Component {
+class Login extends Component {
   render() {
     const { status, username, logIn, logOut } = this.props;
     let email;

@@ -10,12 +10,12 @@ class App extends Component {
       user: null,
     };
   }
-
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged( (user) =>  {
-      this.setState({user});
-    });
-  }
+  //
+  // componentDidMount() {
+  //   firebase.auth().onAuthStateChanged( (user) =>  {
+  //     this.setState({user});
+  //   });
+  // }
 
   render() {
     const { user } = this.state;
