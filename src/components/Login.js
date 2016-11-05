@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router';
 
 import * as actions from '../actions/authenticate';
 
@@ -15,11 +16,12 @@ export class Login extends Component {
         <div id="auth-panel">
           <p>Logged in as <strong>{username}</strong></p>
           <button onClick={e => logOut()}>Log Out</button>
+          <Redirect to='/dashboard' />
         </div>
       );
     } else {
       return (
-        <div id="auth-panel">
+        <div>
           <form onSubmit={e => {
             e.preventDefault()
             logIn(email.value, password.value)
@@ -31,10 +33,14 @@ export class Login extends Component {
             />
             <input ref={node => { password = node }}
               placeholder='Password'
+              type='password'
             />
             <button
               disabled={(status === 'AWAITING_AUTH_RESPONSE')}
             >Log In</button>
+
+            <Link to={"/register"}><button>Register</button></Link>
+
           </form>
         </div>
       );

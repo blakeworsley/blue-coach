@@ -11,7 +11,7 @@ export default function authReducer(state = initialState.auth, action) {
     case 'LOGOUT':
       return {
         status: 'ANONYMOUS',
-        username: 'guest',
+        username: null,
         uid: null
       };
     case 'LOGIN':

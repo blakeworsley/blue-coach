@@ -16,7 +16,6 @@ function startListeningToAuth() {
           type: 'LOGIN',
           uid: coach.uid,
           username: coach.displayName
-          // TODO: check displayName above - may cause errors
         });
       } else {
         if (getState().auth.status !== 'ANONYMOUS') {
@@ -36,11 +35,11 @@ function logIn(emailAddress, password) {
     });
 
     firebase.auth().signInWithEmailAndPassword(emailAddress, password)
-    .then(result => {
+    .then(coach => {
       dispatch({
         type: 'LOGIN',
-        uid: result.user.uid,
-        username: result.user.displayName
+        uid: coach.uid,
+        username: coach.displayName
       });
     })
     .catch(error => {
