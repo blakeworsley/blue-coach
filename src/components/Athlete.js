@@ -10,7 +10,6 @@ class Athlete extends Component {
       coach: {teamName: 'SSST'},
       // needs to come from props ^^^
 
-
       athlete: {firstName: 'Ross', lastName: 'Edfort'},
       routeName: {firstName: 'Ross', lastName: 'Edfort'},
       // needs to come from props ^^^
