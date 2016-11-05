@@ -7,6 +7,8 @@ import * as actions from '../actions/authenticate';
 export class Login extends Component {
   render() {
     const { status, username, logIn, logOut } = this.props;
+    let email;
+    let password;
 
     if (status === 'LOGGED_IN') {
       return (
@@ -18,11 +20,22 @@ export class Login extends Component {
     } else {
       return (
         <div id="auth-panel">
-          <p>You are not logged in.</p>
-          <button
-            disabled={(status === 'AWAITING_AUTH_RESPONSE')}
-            onClick={e => logIn()}
-          >Log In</button>
+          <form onSubmit={e => {
+            e.preventDefault()
+            logIn(email.value, password.value)
+            email.value = ''
+            password.value = ''
+          }}>
+            <input ref={node => { email = node }}
+              placeholder='Email'
+            />
+            <input ref={node => { password = node }}
+              placeholder='Password'
+            />
+            <button
+              disabled={(status === 'AWAITING_AUTH_RESPONSE')}
+            >Log In</button>
+          </form>
         </div>
       );
     }

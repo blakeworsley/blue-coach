@@ -29,9 +29,7 @@ function startListeningToAuth() {
   };
 }
 
-function logIn() {
-  const emailAddress = 'pattiworsley@gmail.com';
-  const password = '123456';
+function logIn(emailAddress, password) {
   return (dispatch) => {
     dispatch({
       type: 'ATTEMPTING_LOGIN'

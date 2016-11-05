@@ -13,12 +13,22 @@ class Register extends Component {
     };
   }
 
+  formatName(name) {
+    const lowercaseName = name.trim().toLowerCase();
+    return lowercaseName.charAt(0).toUpperCase() + lowercaseName.slice(1);
+  }
+
   handleNewUser() {
     const { firstName, lastName, emailAddress, password, teamName } = this.state;
     firebase.auth().createUserWithEmailAndPassword(emailAddress, password)
     .catch((error) => {
       console.log(error);
       alert('All fields required. Make sure password is at least 6 characters.');
+    })
+    .then(() => {
+      firebase.auth().currentUser.updateProfile({
+        displayName: `${this.formatName(firstName)} ${this.formatName(lastName)}`
+      });
     })
     .then(() => {
       firebase.database().ref('users').push({
