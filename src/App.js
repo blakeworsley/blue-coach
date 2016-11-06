@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
-import './App.css';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router';
 
+import * as actions from './actions/authenticate';
+
+import './css/index.css';
+
+
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: null,
-    };
-  }
-
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged( (user) =>  {
-      this.setState({user});
-    });
-  }
-
   render() {
-    const { user } = this.state;
-    if(user){
+    const { status, logIn } = this.props;
+    let email;
+    let password;
+
+    if (status === 'LOGGED_IN') {
       return (
         <Redirect to={{ pathname: '/dashboard'}}/>
       );
@@ -28,10 +23,18 @@ class App extends Component {
         <section>
           <h1>Blue</h1>
           <Link to="/login"><button>Login</button></Link>
+          <Link to="/register"><button>Register</button></Link>
         </section>
       );
     }
   }
 }
 
-export default App;
+
+const mapStateToProps = (state) => state.auth;
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

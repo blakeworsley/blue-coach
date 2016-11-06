@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-export default class Athletes extends Component {
+import * as actions from '../actions/athlete';
 
+class Athletes extends Component {
   render(){
-    const {firstName, lastName, email} = this.props;
-    const destination = `/dashboard/${firstName.toLowerCase()}-${lastName.toLowerCase()}`
+    const {firstName, lastName, email, teamName, selectedAthlete } = this.props;
+    // const destination = `/dashboard/${firstName.toLowerCase()}-${lastName.toLowerCase()}`;
     return (
       <section>
-        <Link to={destination}><h1>{`${firstName} ${lastName}`}</h1></Link>
-        <h2>{email}</h2>
+        {/* <Link to={destination}> */}
+          <h1 onClick={() => selectedAthlete(firstName, lastName, teamName, email)}>
+            {`${firstName} ${lastName}`}
+          </h1>
+        {/* </Link> */}
       </section>
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(actions, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(Athletes);
