@@ -1,6 +1,6 @@
 import { initialState } from '../initialState.js';
 
-export default function athleteReducer(state = initialState.auth, action) {
+export default function athleteReducer(state = initialState.athlete, action) {
   switch(action.type) {
     case 'SELECTED_ATHLETE':
       return {

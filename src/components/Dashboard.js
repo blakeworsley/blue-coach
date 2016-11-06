@@ -10,6 +10,7 @@ import * as actions from '../actions/athletes';
 
 class Dashboard extends Component {
   componentDidMount() {
+    debugger;
     const { getAllCoachesAthletes } = this.props;
     getAllCoachesAthletes();
   }
