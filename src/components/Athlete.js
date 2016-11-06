@@ -4,27 +4,34 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { map } from 'lodash';
 import Athletes from './Athletes';
+import Workout from './Workout';
+import moment from 'moment';
 
 import * as actions from '../actions/athlete';
 
 class Athlete extends Component {
+
   render() {
     const { firstName, lastName, emailAddress, teamName, feedback, route } = this.props;
-    let athleteFeedback = feedback.previousDay ?
+    
+    let previousDay = feedback.previousDay ?
       feedback.previousDay.map((data) => {
-        return <li key={data.date}>
-          <p>Date: {data.date}</p>
-          <p>Mental: {data.mental}</p>
-          <p>Performance: {data.performance}</p>
-          <p>Physical: {data.physical}</p>
-        </li>
+        return (
+          <Workout
+            key={data.date}
+            date={data.date}
+            mental={data.mental}
+            performance={data.performance}
+            physical={data.physical}
+          />
+        )
       }) : null
     return (
       <section>
         <h1>{firstName} {lastName}</h1>
-        <section>
-          {feedback.previousDay ? athleteFeedback : null}
-        </section>
+        <ul>
+          {feedback.previousDay ? previousDay : null}
+        </ul>
       </section>
     );
   }
