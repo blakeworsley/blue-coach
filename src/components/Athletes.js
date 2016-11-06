@@ -8,11 +8,11 @@ import * as actions from '../actions/athlete';
 class Athletes extends Component {
   render(){
     const {firstName, lastName, email, teamName, selectedAthlete } = this.props;
-    // const destination = `/dashboard/${firstName.toLowerCase()}-${lastName.toLowerCase()}`
+    // const destination = `/dashboard/${firstName.toLowerCase()}-${lastName.toLowerCase()}`;
     return (
       <section>
         {/* <Link to={destination}> */}
-          <h1 onClick={() => selectedAthlete(firstName, lastName, teamName)}>
+          <h1 onClick={() => selectedAthlete(firstName, lastName, teamName, email)}>
             {`${firstName} ${lastName}`}
           </h1>
         {/* </Link> */}
@@ -21,10 +21,8 @@ class Athletes extends Component {
   }
 }
 
-const mapStateToProps = (state) => state.athlete;
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(actions, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Athletes);
+export default connect(null, mapDispatchToProps)(Athletes);

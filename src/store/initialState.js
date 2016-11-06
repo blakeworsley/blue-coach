@@ -10,9 +10,11 @@ export const initialState = {
   },
   athlete: {
     status: 'DESELECTED',
+    feedback: null,
     firstName: null,
     lastName: null,
     teamName: null,
+    emailAddress: null,
     route: null
   }
 };

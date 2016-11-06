@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { map } from 'lodash';
 import Athletes from './Athletes';
+import Athlete from './Athlete';
 
 import * as actions from '../actions/athletes';
 
@@ -33,6 +34,9 @@ class Dashboard extends Component {
           {renderAthletes}
         </section>
         <section>
+          {athletes ? <Athlete /> : <h1>Not yet</h1>}
+          {/* {athlete ? <h1>{athlete.firstName} {athlete.lastName}</h1> : <h1>No one yet...</h1>}
+          {athlete} */}
           {/* {currentAthlete} */}
           {/* If there is a current clicked athlete, render him here */}
         </section>
