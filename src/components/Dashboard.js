@@ -2,22 +2,41 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { map } from 'lodash';
+import Athletes from './Athletes';
 
 import * as actions from '../actions/athletes';
 
 class Dashboard extends Component {
-
   componentDidMount() {
     const { getAllCoachesAthletes } = this.props;
     getAllCoachesAthletes();
   }
   render() {
-    const { status, athletes } = this.props;
+    let { status, athletes } = this.props;
+    const renderAthletes = map(athletes, (athlete) => {
+      return(
+        <Athletes key={athlete.firstName + athlete.lastName + athlete.teamName}
+          firstName={athlete.firstName}
+          lastName={athlete.lastName}
+          teamName={athlete.teamName}
+          email={athlete.emailAddress}
+        />
+      )
+    })
+
     return (
-     <div>
-       <h1>Coach Dashboard</h1>
-       {status}
-     </div>
+      <section>
+        <section>
+          <h1>Coach Dashboard</h1>
+          {status}
+          {renderAthletes}
+        </section>
+        <section>
+          {/* {currentAthlete} */}
+          {/* If there is a current clicked athlete, render him here */}
+        </section>
+      </section>
     );
   }
 };

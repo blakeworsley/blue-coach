@@ -13,7 +13,7 @@ import NoMatch from './components/NoMatch';
 
 import * as actions from './actions/authenticate';
 import store from './store';
-import './index.css';
+import './css/index.css';
 
 ReactDOM.render(
   <Provider store={store}>

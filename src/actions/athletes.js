@@ -20,13 +20,10 @@ function getAllCoachesAthletes() {
           type: 'NO_ATHLETES'
         });
       }
-    })
-    .catch(error => {
-      console.log("Error recieving swimmers: ", error);
     });
   };
 }
 
 export {
-  getAllCoachesAthletes
+  getAllCoachesAthletes,
 };
