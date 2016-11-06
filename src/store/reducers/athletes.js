@@ -4,7 +4,7 @@ export default function athletesReducer(state = initialState.auth, action) {
   switch(action.type) {
     case 'RECIEVED_ATHLETES':
       return {
-        status: 'ALL_ATHLETES_RECIEVED',
+        status: 'ALL_ATHLETES_RECEIVED',
         athletes: action.athletes
       };
     case 'NO_ATHLETES':

@@ -27,8 +27,9 @@ function getAllCoachesAthletes() {
 function selectedAthlete(firstName, lastName, teamName, emailAddress) {
   const namePath = `${firstName.toLowerCase()}-${lastName.toLowerCase()}`;
   return (dispatch) => {
-    firebase.database().ref(`workouts/${teamName}/${namePath}`).on('value', (snapshot) => {
-      console.log(snapshot.val());
+    firebase.database().ref(`workouts/${teamName.toLowerCase()}/${namePath}`)
+    .on('value', (snapshot) => {
+      debugger;
       dispatch({
         type: 'SELECTED_ATHLETE',
         feedback: snapshot.val(),
