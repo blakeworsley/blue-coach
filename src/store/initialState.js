@@ -10,7 +10,7 @@ export const initialState = {
   },
   athlete: {
     status: 'DESELECTED',
-    feedback: null,
+    feedback: {previousDay: null, previousWeek: null, previousMonth: null, previousSeason: null},
     firstName: null,
     lastName: null,
     teamName: null,

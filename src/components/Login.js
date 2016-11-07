@@ -38,9 +38,7 @@ class Login extends Component {
             <button
               disabled={(status === 'AWAITING_AUTH_RESPONSE')}
             >Log In</button>
-
             <Link to={"/register"}><button>Register</button></Link>
-
           </form>
         </div>
       );
