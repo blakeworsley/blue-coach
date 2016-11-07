@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { map } from 'lodash';
-import Athletes from './Athletes';
 import Workout from './Workout';
-import moment from 'moment';
 
 import * as actions from '../actions/athlete';
 
 class Athlete extends Component {
 
   render() {
-    const { firstName, lastName, emailAddress, teamName, feedback, route } = this.props;
+    const { firstName, lastName, feedback } = this.props;
 
     let previousDay = feedback.previousDay ?
       feedback.previousDay.map((data) => {

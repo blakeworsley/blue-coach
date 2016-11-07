@@ -15,7 +15,7 @@ class Login extends Component {
       return (
         <div id="auth-panel">
           <p>Logged in as <strong>{username}</strong></p>
-          <button onClick={e => logOut()}>Log Out</button>
+          <button onClick={e => {logOut()}}>Log Out</button>
           <Redirect to='/dashboard' />
         </div>
       );

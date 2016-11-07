@@ -42,16 +42,16 @@ function logIn(emailAddress, password) {
 
 function logOut() {
   return(dispatch) => {
-    dispatch({
-      type: 'LOGOUT'
-    });
-
     firebase.auth().signOut()
     .then(() => {
       console.log('Sign out succeeded');
     })
     .catch(error => {
       console.log('SIGN OUT ERROR IN "authenticate.js": ', error);
+    }).then(() => {
+      dispatch({
+        type: 'LOGOUT'
+      });
     });
   };
 }

@@ -7,10 +7,7 @@ import * as actions from '../actions/authenticate';
 
 export class Navigation extends Component {
   render() {
-    const { status, username, logIn, logOut } = this.props;
-    let email;
-    let password;
-
+    const { status, username, logOut } = this.props;
     if (status === 'LOGGED_IN') {
       return (
         <div id="auth-panel">

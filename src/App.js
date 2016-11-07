@@ -7,10 +7,6 @@ import * as actions from './actions/authenticate';
 
 class App extends Component {
   render() {
-    const { status, logIn } = this.props;
-    let email;
-    let password;
-
     if (status === 'LOGGED_IN') {
       return (
         <Redirect to={{ pathname: '/dashboard'}}/>
