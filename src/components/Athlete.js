@@ -13,7 +13,7 @@ class Athlete extends Component {
 
   render() {
     const { firstName, lastName, emailAddress, teamName, feedback, route } = this.props;
-    
+
     let previousDay = feedback.previousDay ?
       feedback.previousDay.map((data) => {
         return (

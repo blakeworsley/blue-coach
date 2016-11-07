@@ -13,8 +13,7 @@ import NoMatch from './components/NoMatch';
 
 import * as actions from './actions/authenticate';
 import store from './store';
-import './stylesheets/index.css';
-// require('./stylesheets/index');
+import './stylesheets/css/main.css';
 
 
 ReactDOM.render(
