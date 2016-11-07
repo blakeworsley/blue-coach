@@ -9,6 +9,8 @@
     "firebase": "^3.5.3",
     "history": "^4.4.0",
     "lodash": "^4.16.6",
+    "moment": "^2.15.2",
+    "node-sass": "^3.11.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",

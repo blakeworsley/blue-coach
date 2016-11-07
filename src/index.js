@@ -13,7 +13,9 @@ import NoMatch from './components/NoMatch';
 
 import * as actions from './actions/authenticate';
 import store from './store';
-import './css/index.css';
+import './stylesheets/index.css';
+// require('./stylesheets/index');
+
 
 ReactDOM.render(
   <Provider store={store}>

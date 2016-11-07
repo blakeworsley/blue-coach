@@ -5,9 +5,6 @@ import { Link, Redirect } from 'react-router';
 
 import * as actions from './actions/authenticate';
 
-import './css/index.css';
-
-
 class App extends Component {
   render() {
     const { status, logIn } = this.props;
