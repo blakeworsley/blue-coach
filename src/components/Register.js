@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from '../firebase';
+import { Link } from 'react-router';
 
 class Register extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class Register extends Component {
   render() {
     const { firstName, lastName, emailAddress, password, teamName } = this.state;
     return (
-      <div>
+      <section className="register-form">
         <input value={firstName}
           onChange={(event) => this.setState({firstName: event.target.value})}
           placeholder='First Name'
@@ -77,7 +78,8 @@ class Register extends Component {
         <button onClick={() => {this.handleNewUser()} }>
           Register
         </button>
-      </div>
+        <Link to={"/login"}><button>Back</button></Link>
+      </section>
     );
   }
 }

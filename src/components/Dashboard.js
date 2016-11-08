@@ -13,9 +13,9 @@ class Dashboard extends Component {
   componentDidMount() {
     const { getCoachesTeam, getAllCoachesAthletes } = this.props;
     firebase.auth().onAuthStateChanged((user) => {
-      getCoachesTeam(user);
+      getAllCoachesAthletes(user);
     });
-    getAllCoachesAthletes();
+    // getAllCoachesAthletes();
     }
 
   render() {

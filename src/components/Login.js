@@ -13,17 +13,18 @@ class Login extends Component {
 
     if (status === 'LOGGED_IN') {
       return (
-        <Redirect to='/' />
+        <Redirect to='/dashboard' />
       );
     } else {
       return (
-        <div>
           <form onSubmit={e => {
             e.preventDefault()
             logIn(email.value, password.value)
             email.value = ''
             password.value = ''
-          }}>
+          }}
+          className="login-form"
+          >
             <input ref={node => { email = node }}
               placeholder='Email'
             />
@@ -36,7 +37,6 @@ class Login extends Component {
             >Log In</button>
             <Link to={"/register"}><button>Register</button></Link>
           </form>
-        </div>
       );
     }
   }

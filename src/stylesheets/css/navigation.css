@@ -1,0 +1,11 @@
+.auth-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw; }
+  .auth-header nav {
+    margin-left: auto;
+    display: flex;
+    align-items: flex-end; }
+
+/*# sourceMappingURL=navigation.css.map */

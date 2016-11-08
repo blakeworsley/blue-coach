@@ -1,0 +1,7 @@
+<svg width="1440px" height="715px" viewBox="2 610 1440 715" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#ace8ff" offset="0%"></stop>
+            <stop stop-color="#4B80D1" offset="100%"></stop>
+        </linearGradient>
+    <path d="M2,817.965771 C2,817.965771 419.153244,940.10305 761.322339,806.593322 C1103.49143,673.083594 995.940248,591.289401 1441.12607,613.675609 L1441.12607,1325 L2,1325 L2,817.965771 Z" id="Path-2" stroke="none" fill="url(#linearGradient-1)" fill-rule="evenodd"></path>
+</svg>

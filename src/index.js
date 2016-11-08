@@ -18,7 +18,7 @@ import './stylesheets/css/main.css';
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter history={history}>
-      <section>
+      <section className="app">
         <Match exactly pattern="/" component={App} />
         <Match exactly pattern="/dashboard" component={Dashboard} />
         <Match exactly pattern="/login" component={Login} />

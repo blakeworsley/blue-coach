@@ -16,8 +16,10 @@ class App extends Component {
       );
     } else {
       return (
-        <section>
-          <h1>Blue</h1>
+        <section className="starting-screen">
+          <img src="./img/wave1.svg" className="wave1"/>
+          <img src="./img/wave2.svg" className="wave2"/>
+          <h1 className="logo">blue</h1>
           <Link to="/login"><button>Login</button></Link>
           <Link to="/register"><button>Register</button></Link>
         </section>
