@@ -11,16 +11,15 @@ import * as actions from '../actions/athletes';
 
 class Dashboard extends Component {
   componentDidMount() {
-    const { getCoachesTeam, getAllCoachesAthletes } = this.props;
+    const { getCoachesTeam } = this.props;
     firebase.auth().onAuthStateChanged((user) => {
       getCoachesTeam(user);
     });
   }
 
   componentWillReceiveProps(nextProps) {
-    const { getAthletesOnTeam, athletes } = this.props;
+    const { getAthletesOnTeam } = this.props;
     if (nextProps.athletes.team && nextProps.athletes.team !== this.props.athletes.team) {
-      console.log('Next Props: ', nextProps.athletes);
       getAthletesOnTeam(nextProps.athletes.team);
     }
   }

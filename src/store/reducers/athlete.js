@@ -3,7 +3,7 @@ import { initialState } from '../initialState.js';
 export default function athleteReducer(state = initialState.athlete, action) {
   switch(action.type) {
     case 'SELECTED_ATHLETE':
-      return {
+    return Object.assign({}, state, {
         status: 'ATHLETE_SELECTED',
         feedback: action.feedback,
         firstName: action.firstName,
@@ -11,9 +11,9 @@ export default function athleteReducer(state = initialState.athlete, action) {
         teamName: action.teamName,
         emailAddress: action.emailAddress,
         route: action.namePath
-      };
+      });
     case 'DESELECTED':
-      return {
+      return Object.assign({}, state, {
         status: 'DESELECTED',
         feedback: null,
         firstName: null,
@@ -21,7 +21,7 @@ export default function athleteReducer(state = initialState.athlete, action) {
         teamName: null,
         emailAddress: null,
         route: null
-      };
+      });
     default:
       return state;
   }

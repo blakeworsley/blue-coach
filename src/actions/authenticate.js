@@ -57,33 +57,8 @@ function logOut() {
   };
 }
 
-function getCoachesTeam() {
-  return (dispatch, getState) => {
-    dispatch({
-      type: 'RECEIVING_TEAM'
-    });
-
-    let email = getState().auth.email;
-    let team;
-
-    firebase.database().ref(`users`).on('value', (snapshot) => {
-      let users = Object.values(snapshot.val());
-      for (var i = 0; i < users.length; i++) {
-        if(users[i].emailAddress === email) {
-          team = users[i].teamName.toLowerCase();
-        }
-      }
-      dispatch({
-        type: 'RECEIVED_TEAM',
-        team: team
-      });
-    });
-  };
-}
-
 export {
   startListeningToAuth,
   logIn,
   logOut,
-  getCoachesTeam
 };

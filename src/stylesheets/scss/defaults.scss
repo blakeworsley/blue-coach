@@ -20,6 +20,9 @@ button:focus {
   border: 3px solid #94e4eb;
   outline: none;
 }
+button:disabled {
+  background-color: red;
+}
 
 input {
   background: rgba(31,135,226,0.60);
@@ -35,7 +38,7 @@ input {
 }
 
 input::placeholder {
-  color: white;
+  color: $darkerPrimaryColor;
   font-family: $primaryFont;
 }
 

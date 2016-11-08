@@ -3,7 +3,7 @@ import split from 'split-object';
 
 
 function getCoachesTeam(user) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch({
       type: 'RECEIVING_TEAM'
     });
