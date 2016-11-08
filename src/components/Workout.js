@@ -5,6 +5,7 @@ import moment from 'moment';
 class Workout extends Component {
   render() {
     const { date, mental, performance, physical } = this.props;
+    debugger;
     return (
       <li key={date}>
         <p>Date: {moment(date).format('LLL')}</p>

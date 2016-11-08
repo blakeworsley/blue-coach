@@ -7,21 +7,23 @@ import * as actions from '../actions/athlete';
 
 class Athlete extends Component {
 
+  loadData(timePeriod){
+    timePeriod.map((data) => {
+      return (
+        <Workout
+          key={data.date}
+          date={data.date}
+          mental={data.mental}
+          performance={data.performance}
+          physical={data.physical}
+        />
+      )
+    })
+  }
+
   render() {
     const { firstName, lastName, feedback } = this.props;
 
-    let previousDay = feedback.previousDay ?
-      feedback.previousDay.map((data) => {
-        return (
-          <Workout
-            key={data.date}
-            date={data.date}
-            mental={data.mental}
-            performance={data.performance}
-            physical={data.physical}
-          />
-        )
-      }) : null
     return (
       <section className="athlete-card">
         <header className="athlete-card-header">
@@ -31,7 +33,9 @@ class Athlete extends Component {
           <h3>Monthly</h3>
         </header>
         <ul>
-          {feedback.previousDay ? previousDay : null}
+
+          {/* {feedback.previousDay ? this.loadData(feedback.previousDay) : null} */}
+          {feedback.previousWeek ? this.loadData(feedback.previousWeek) : null}
         </ul>
       </section>
     );
@@ -45,3 +49,30 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Athlete);
+
+
+
+
+
+
+
+
+
+
+
+
+    //
+    //
+    //
+    // let previousDay = feedback.previousDay ?
+    //   feedback.previousDay.map((data) => {
+    //     return (
+    //       <Workout
+    //         key={data.date}
+    //         date={data.date}
+    //         mental={data.mental}
+    //         performance={data.performance}
+    //         physical={data.physical}
+    //       />
+    //     )
+    //   }) : null
