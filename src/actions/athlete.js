@@ -1,6 +1,5 @@
 import firebase from '../firebase';
 import { map } from 'lodash';
-import moment from 'moment';
 
 
 function selectedAthlete(firstName, lastName, teamName, emailAddress) {

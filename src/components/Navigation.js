@@ -7,27 +7,24 @@ import * as actions from '../actions/authenticate';
 
 export class Navigation extends Component {
   render() {
-    const { status, username, logIn, logOut } = this.props;
-    let email;
-    let password;
-
+    const { status, username, logOut } = this.props;
     if (status === 'LOGGED_IN') {
       return (
-        <div id="auth-panel">
-          <Link to="/">Home </Link>
-          <Link to="/dashboard">Dashboard </Link>
-          <p>Logged in as <strong>{username}</strong></p>
-          <button onClick={e => logOut()}>Log Out</button>
-        </div>
+        <header className="auth-header">
+          <nav>
+            <Link to="/">Home </Link>
+            <Link to="/dashboard">Dashboard </Link>
+            <p>Logged in as <strong>{username}</strong></p>
+            <button onClick={e => logOut()}>Log Out</button>
+          </nav>
+        </header>
       );
     } else {
       return (
-        <div>
-          <Link to="/">Home </Link>
-          <Link to="/dashboard">Dashboard </Link>
+        <header className="auth-header">
           <Link to="/login">Login </Link>
           <Link to="/register">Register </Link>
-        </div>
+        </header>
       );
     }
   }

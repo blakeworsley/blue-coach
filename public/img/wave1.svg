@@ -1,0 +1,8 @@
+
+<svg width="1440px" height="622px" viewBox="0 403 1440 622" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#78F0FB" offset="0%"></stop>
+            <stop stop-color="#42DCF4" offset="100%"></stop>
+        </linearGradient>
+    <path d="M0.87393119,440.656273 C0.87393119,440.656273 166.149343,380.238684 355.019175,413.00971 C543.889006,445.780736 914.950133,642.2069 1440,629.315093 C1438.34042,905.807157 1440,1024.70863 1440,1024.70863 L0.87393119,1024.70863 L0.87393119,440.656273 Z" id="Path-3" stroke="none" fill="url(#linearGradient-1)" fill-rule="evenodd" style="mix-blend-mode: multiply;"></path>
+</svg>

@@ -7,7 +7,8 @@ function startListeningToAuth() {
         dispatch({
           type: 'LOGIN',
           uid: coach.uid,
-          username: coach.displayName
+          username: coach.displayName,
+          email: coach.email
         });
       } else {
         if (getState().auth.status !== 'ANONYMOUS') {
@@ -25,13 +26,13 @@ function logIn(emailAddress, password) {
     dispatch({
       type: 'ATTEMPTING_LOGIN'
     });
-
     firebase.auth().signInWithEmailAndPassword(emailAddress, password)
     .then(coach => {
       dispatch({
         type: 'LOGIN',
         uid: coach.uid,
-        username: coach.displayName
+        username: coach.displayName,
+        email: coach.email
       });
     })
     .catch(error => {
@@ -42,16 +43,16 @@ function logIn(emailAddress, password) {
 
 function logOut() {
   return(dispatch) => {
-    dispatch({
-      type: 'LOGOUT'
-    });
-
     firebase.auth().signOut()
     .then(() => {
       console.log('Sign out succeeded');
     })
     .catch(error => {
       console.log('SIGN OUT ERROR IN "authenticate.js": ', error);
+    }).then(() => {
+      dispatch({
+        type: 'LOGOUT'
+      });
     });
   };
 }

@@ -8,20 +8,17 @@ import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import Athlete from './components/Athlete';
 import Athletes from './components/Athletes';
-import Navigation from './components/Navigation';
 import NoMatch from './components/NoMatch';
 
 import * as actions from './actions/authenticate';
 import store from './store';
-import './stylesheets/index.css';
-// require('./stylesheets/index');
+import './stylesheets/css/main.css';
 
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter history={history}>
-      <section>
-        <Navigation />
+      <section className="app">
         <Match exactly pattern="/" component={App} />
         <Match exactly pattern="/dashboard" component={Dashboard} />
         <Match exactly pattern="/login" component={Login} />

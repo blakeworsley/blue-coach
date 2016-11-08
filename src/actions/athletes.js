@@ -1,49 +1,51 @@
 import firebase from '../firebase';
 import split from 'split-object';
 
-function getAllCoachesAthletes() {
-  const team = 'ssst';
+
+function getCoachesTeam(user) {
   return (dispatch) => {
-    firebase.database().ref(`teams/${team}/athletes`).on('value', (snapshot) => {
+    dispatch({
+      type: 'RECEIVING_TEAM'
+    });
+    let email = user.email;
+    let team;
+
+    firebase.database().ref(`users`).once('value', (snapshot) => {
+        let users = Object.values(snapshot.val());
+        for (var i = 0; i < users.length; i++) {
+          if(users[i].emailAddress === email) {
+            team = users[i].teamName.toLowerCase();
+          }
+        }
+      dispatch({
+        type: 'RECEIVED_TEAM',
+        team: team
+      });
+    });
+  };
+}
+
+function getAthletesOnTeam(team) {
+  return (dispatch) => {
+    firebase.database().ref(`teams/${team}/athletes`).once('value', (snapshot) => {
       let athletes = snapshot.val();
       split(athletes).map(athlete => {
-        Object.assign({ key: athlete.key }, athlete.value);
+        return Object.assign({ key: athlete.key }, athlete.value);
       });
-      if (athletes) {
-        dispatch({
-          type: 'RECIEVED_ATHLETES',
-          athletes: athletes
-        });
-      } else {
-        console.log('NO ATHLETES IN DATABASE UNDER: ' + team);
-        dispatch ({
-          type: 'NO_ATHLETES'
-        });
-      }
-    });
-  };
-}
-
-function selectedAthlete(firstName, lastName, teamName, emailAddress) {
-  const namePath = `${firstName.toLowerCase()}-${lastName.toLowerCase()}`;
-  return (dispatch) => {
-    firebase.database().ref(`workouts/${teamName.toLowerCase()}/${namePath}`)
-    .on('value', (snapshot) => {
-      debugger;
       dispatch({
-        type: 'SELECTED_ATHLETE',
-        feedback: snapshot.val(),
-        firstName: firstName,
-        lastName: lastName,
-        teamName: teamName,
-        emailAddress: emailAddress,
-        route: namePath
+        type: 'RECEIVED_ATHLETES',
+        athletes: athletes
       });
+    }).catch(error => {
+       console.log('NO ATHLETES IN DATABASE UNDER: ', team, error);
+       dispatch ({
+         type: 'NO_ATHLETES'
+       });
     });
   };
 }
-
 
 export {
-  getAllCoachesAthletes,
+  getCoachesTeam,
+  getAthletesOnTeam
 };

@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router';
 import { map } from 'lodash';
 import Athletes from './Athletes';
 import Athlete from './Athlete';
+import Navigation from './Navigation';
+import firebase from '../firebase';
 
 import * as actions from '../actions/athletes';
 
 class Dashboard extends Component {
   componentDidMount() {
-    const { getAllCoachesAthletes } = this.props;
-    getAllCoachesAthletes();
+    const { getCoachesTeam } = this.props;
+    firebase.auth().onAuthStateChanged((user) => {
+      getCoachesTeam(user);
+    });
   }
+
+  componentWillReceiveProps(nextProps) {
+    const { getAthletesOnTeam } = this.props;
+    if (nextProps.athletes.team && nextProps.athletes.team !== this.props.athletes.team) {
+      getAthletesOnTeam(nextProps.athletes.team);
+    }
+  }
+
   render() {
-    let { status, athletes } = this.props;
+    const { status, athletes } = this.props.athletes;
     const renderAthletes = map(athletes, (athlete) => {
       return(
         <Athletes key={athlete.firstName + athlete.lastName + athlete.teamName}
@@ -27,19 +38,26 @@ class Dashboard extends Component {
     })
     return (
       <section>
+        <Navigation/>
         <section>
           <h1>Coach Dashboard</h1>
           {renderAthletes}
         </section>
         <section>
-          {athletes ? <Athlete /> : <h1>Loading Athletes</h1>}
+          {status}
+          {athletes ? <Athlete /> : <h1>Please select an athlete</h1>}
         </section>
       </section>
     );
   }
 };
 
-const mapStateToProps = (state) => state.athletes;
+const mapStateToProps = (state) => {
+  return {
+    athletes: state.athletes,
+    auth: state.auth
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(actions, dispatch);

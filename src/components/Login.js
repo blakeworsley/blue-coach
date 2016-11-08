@@ -7,27 +7,24 @@ import * as actions from '../actions/authenticate';
 
 class Login extends Component {
   render() {
-    const { status, username, logIn, logOut } = this.props;
+    const { status, logIn } = this.props;
     let email;
     let password;
 
     if (status === 'LOGGED_IN') {
       return (
-        <div id="auth-panel">
-          <p>Logged in as <strong>{username}</strong></p>
-          <button onClick={e => logOut()}>Log Out</button>
-          <Redirect to='/dashboard' />
-        </div>
+        <Redirect to='/dashboard' />
       );
     } else {
       return (
-        <div>
           <form onSubmit={e => {
             e.preventDefault()
             logIn(email.value, password.value)
             email.value = ''
             password.value = ''
-          }}>
+          }}
+          className="login-form"
+          >
             <input ref={node => { email = node }}
               placeholder='Email'
             />
@@ -40,7 +37,6 @@ class Login extends Component {
             >Log In</button>
             <Link to={"/register"}><button>Register</button></Link>
           </form>
-        </div>
       );
     }
   }

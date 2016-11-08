@@ -7,18 +7,23 @@ import * as actions from './actions/authenticate';
 
 class App extends Component {
   render() {
-    const { status, logIn } = this.props;
-    let email;
-    let password;
-
+    const { status } = this.props;
     if (status === 'LOGGED_IN') {
       return (
-        <Redirect to={{ pathname: '/dashboard'}}/>
+        <section>
+          <Redirect to='/dashboard' />
+        </section>
       );
     } else {
       return (
-        <section>
-          <h1>Blue</h1>
+        <section className="starting-screen">
+          <img src="./img/wave1.svg" className="wave1"
+          role="presentation"
+          />
+          <img src="./img/wave2.svg" className="wave2"
+          role="presentation"
+          />
+          <h1 className="logo">blue</h1>
           <Link to="/login"><button>Login</button></Link>
           <Link to="/register"><button>Register</button></Link>
         </section>
