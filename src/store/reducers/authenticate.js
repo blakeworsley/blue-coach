@@ -6,19 +6,22 @@ export default function authReducer(state = initialState.auth, action) {
       return {
         status: 'AWAITING_AUTH_RESPONSE',
         username: 'guest',
-        uid: null
+        uid: null,
+        email: null,
       };
     case 'LOGOUT':
       return {
         status: 'ANONYMOUS',
         username: null,
-        uid: null
+        uid: null,
+        email: null,
       };
     case 'LOGIN':
       return {
         status: 'LOGGED_IN',
         username: action.username,
-        uid: action.uid
+        uid: action.uid,
+        email: action.email
       };
     default:
       return state;

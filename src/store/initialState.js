@@ -2,7 +2,8 @@ export const initialState = {
   auth: {
     status: 'ANONYMOUS',
     username: null,
-    uid: null
+    uid: null,
+    email: null,
   },
   athletes: {
     status: 'NO_ATHLETES',

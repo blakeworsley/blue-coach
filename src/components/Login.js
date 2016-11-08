@@ -7,17 +7,13 @@ import * as actions from '../actions/authenticate';
 
 class Login extends Component {
   render() {
-    const { status, username, logIn, logOut } = this.props;
+    const { status, logIn } = this.props;
     let email;
     let password;
 
     if (status === 'LOGGED_IN') {
       return (
-        <div id="auth-panel">
-          <p>Logged in as <strong>{username}</strong></p>
-          <button onClick={e => {logOut()}}>Log Out</button>
-          <Redirect to='/dashboard' />
-        </div>
+        <Redirect to='/' />
       );
     } else {
       return (

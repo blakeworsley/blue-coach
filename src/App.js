@@ -7,9 +7,13 @@ import * as actions from './actions/authenticate';
 
 class App extends Component {
   render() {
+    const { status } = this.props;
+    debugger;
     if (status === 'LOGGED_IN') {
       return (
-        <Redirect to={{ pathname: '/dashboard'}}/>
+        <section>
+          <Redirect to='/dashboard' />
+        </section>
       );
     } else {
       return (

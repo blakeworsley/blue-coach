@@ -7,7 +7,8 @@ function startListeningToAuth() {
         dispatch({
           type: 'LOGIN',
           uid: coach.uid,
-          username: coach.displayName
+          username: coach.displayName,
+          email: coach.email
         });
       } else {
         if (getState().auth.status !== 'ANONYMOUS') {
@@ -31,7 +32,8 @@ function logIn(emailAddress, password) {
       dispatch({
         type: 'LOGIN',
         uid: coach.uid,
-        username: coach.displayName
+        username: coach.displayName,
+        email: coach.email
       });
     })
     .catch(error => {
@@ -59,5 +61,5 @@ function logOut() {
 export {
   startListeningToAuth,
   logIn,
-  logOut,
+  logOut
 };
