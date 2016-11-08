@@ -3,7 +3,7 @@ export const initialState = {
     status: 'ANONYMOUS',
     username: null,
     uid: null,
-    email: null,
+    email: null
   },
   athletes: {
     status: 'NO_ATHLETES',

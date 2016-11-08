@@ -2,9 +2,14 @@ import firebase from '../firebase';
 import split from 'split-object';
 
 
-function getCoachesTeam(email) {
-  let team;
-  return (dispatch) => {
+function getCoachesTeam(user) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: 'RECEIVING_TEAM'
+    });
+    let email = user.email;
+    let team;
+
     firebase.database().ref(`users`).on('value', (snapshot) => {
         let users = Object.values(snapshot.val());
         for (var i = 0; i < users.length; i++) {
@@ -20,8 +25,10 @@ function getCoachesTeam(email) {
   };
 }
 
-function getAllCoachesAthletes(team) {
-  return (dispatch) => {
+function getAllCoachesAthletes() {
+  return (dispatch, getState) => {
+    let team = 'ssst';
+    // let team = getState().auth.team;
     firebase.database().ref(`teams/${team}/athletes`).on('value', (snapshot) => {
       let athletes = snapshot.val();
       split(athletes).map(athlete => {
@@ -29,7 +36,7 @@ function getAllCoachesAthletes(team) {
       });
       if (athletes) {
         dispatch({
-          type: 'RECIEVED_ATHLETES',
+          type: 'RECEIVED_ATHLETES',
           athletes: athletes
         });
       } else {
@@ -38,48 +45,31 @@ function getAllCoachesAthletes(team) {
           type: 'NO_ATHLETES'
         });
       }
-    });
+    }).catch(error => console.log(error))
   };
 }
 
-// function getUserTeamName() {
-//   let email;
-//   let teamName;
-//   firebase.auth().onAuthStateChanged(coach => {
-//     email = coach.email;
-//   });
-//   firebase.database().ref(`users`).on('value', (snapshot) => {
-//       let users = Object.values(snapshot.val());
-//       for (var i = 0; i < users.length; i++) {
-//         if(users[i].emailAddress === email) {
-//           teamName = users[i].teamName.toLowerCase();
-//         }
-//       }
-//   });
-//   return teamName;
-// }
-
 export {
   getCoachesTeam,
-  getAllCoachesAthletes,
-  // getUserTeamName
+  getAllCoachesAthletes
 };
 
 
 
-// function getUserTeamName() {
-//   let email;
-//   let teamName;
-//   firebase.auth().onAuthStateChanged(coach => {
-//     email = coach.email;
+// function getCoachesTeam(email) {
+//   let team;
+//   return (dispatch) => {
 //     firebase.database().ref(`users`).on('value', (snapshot) => {
-//       let users = Object.values(snapshot.val());
-//       for (var i = 0; i < users.length; i++) {
-//         if(users[i].emailAddress === email) {
-//           teamName = users[i].teamName.toLowerCase();
-//           return teamName;
+//         let users = Object.values(snapshot.val());
+//         for (var i = 0; i < users.length; i++) {
+//           if(users[i].emailAddress === email) {
+//             team = users[i].teamName.toLowerCase();
+//           }
 //         }
-//       }
+//       dispatch({
+//         type: 'RECEIVED_TEAM',
+//         team: team
+//       });
 //     });
-//   });
+//   };
 // }

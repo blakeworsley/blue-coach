@@ -8,7 +8,6 @@ import * as actions from './actions/authenticate';
 class App extends Component {
   render() {
     const { status } = this.props;
-    debugger;
     if (status === 'LOGGED_IN') {
       return (
         <section>
