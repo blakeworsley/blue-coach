@@ -20,13 +20,25 @@ body {
   align-items: center;
 }
 
-.logo {
+.logo, .logo-small {
   background: $primaryColor2;
   border-radius: 10px;
   color: $secondaryFontColor;
   font-family: $logoFont;
+}
+.logo {
   font-size: 4em;
   margin: 20px;
+  padding: 5px 40px;
+}
+
+.logo-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  height: 40px;
+  width: 50px;
   padding: 5px 40px;
 }
 
