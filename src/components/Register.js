@@ -28,7 +28,8 @@ class Register extends Component {
     })
     .then(() => {
       firebase.auth().currentUser.updateProfile({
-        displayName: `${this.formatName(firstName)} ${this.formatName(lastName)}`
+        displayName: `${this.formatName(firstName)} ${this.formatName(lastName)}`,
+        teamName: teamName
       });
     })
     .then(() => {

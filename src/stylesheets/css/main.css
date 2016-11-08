@@ -142,7 +142,8 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  width: 100vw; }
+  width: 100vw;
+  display: flex; }
   .auth-header nav {
     margin-left: auto;
     display: flex;
