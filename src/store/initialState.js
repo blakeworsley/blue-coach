@@ -7,6 +7,7 @@ export const initialState = {
   },
   athletes: {
     status: 'NO_ATHLETES',
+    team: null,
     athletes: []
   },
   athlete: {

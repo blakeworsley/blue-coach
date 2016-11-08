@@ -9,17 +9,21 @@ import Navigation from './Navigation';
 import * as actions from '../actions/athletes';
 
 class Dashboard extends Component {
-  componentWillMount() {
-    const { user } = this.props.auth;
-    const { getAllCoachesAthletes } = this.props;
-    getAllCoachesAthletes(user);
+  getTeam() {
+    const { email, team } = this.props.auth;
+    const { getCoachesTeam } = this.props;
+    getCoachesTeam(email);
+    // getAllCoachesAthletes(team);
   }
 
   render() {
     const { athletes } = this.props.athletes;
-    const { status } = this.props.auth;
+    const { status, email, team } = this.props.auth;
+    const { getAllCoachesAthletes } = this.props;
 
     if (status === 'LOGGED_IN') {
+      this.getTeam();
+      getAllCoachesAthletes(team);
       const renderAthletes = map(athletes, (athlete) => {
         return(
           <Athletes key={athlete.firstName + athlete.lastName + athlete.teamName}
