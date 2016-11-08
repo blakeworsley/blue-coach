@@ -50,10 +50,7 @@ class Dashboard extends Component {
               {renderAthletes}
             </ul>
           </section>
-          <section className='dashboard-athlete-container'>
-            {status}
-            {athletes ? <Athlete /> : <h1>Please select an athlete</h1>}
-          </section>
+          {(this.props.athlete.status === 'ATHLETE_SELECTED') ? <Athlete /> : null}
         </section>
       </section>
     );
@@ -63,7 +60,8 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   return {
     athletes: state.athletes,
-    auth: state.auth
+    auth: state.auth,
+    athlete: state.athlete
   };
 };
 

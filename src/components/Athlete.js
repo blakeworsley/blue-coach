@@ -23,8 +23,13 @@ class Athlete extends Component {
         )
       }) : null
     return (
-      <section>
-        <h1>{firstName} {lastName}</h1>
+      <section className="athlete-card">
+        <header className="athlete-card-header">
+          <h1>{firstName} {lastName}</h1>
+          <h3>Daily</h3>
+          <h3>Weekly</h3>
+          <h3>Monthly</h3>
+        </header>
         <ul>
           {feedback.previousDay ? previousDay : null}
         </ul>
