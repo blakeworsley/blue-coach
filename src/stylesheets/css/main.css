@@ -45,6 +45,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+h1 {
+  font-size: 24px;
+  font-family: "Open Sans", sans-serif;
+  color: #fff; }
+
+p {
+  font-size: 14px;
+  color: #40396A; }
+
 button {
   background-image: linear-gradient(-180deg, rgba(56, 240, 255, 0.8) 30%, rgba(84, 172, 245, 0.8) 100%);
   border: 3px solid rgba(177, 242, 247, 0.75);
@@ -187,6 +196,8 @@ body {
     border-radius: 25px 25px 0 0;
     display: flex;
     align-items: center; }
+  .dashboard-athletes-container ul {
+    width: 230px; }
 
 .auth-header {
   display: flex;
@@ -202,9 +213,29 @@ body {
     justify-content: flex-end;
     align-items: center; }
 
+.athletes-name {
+  width: 100%;
+  padding: 10px;
+  background: #C7FF89;
+  font-family: "Open Sans", sans-serif;
+  opacity: 0.9; }
+
+.athletes-name:hover {
+  cursor: pointer;
+  opacity: 1; }
+
+.tired {
+  background: #FF6C7E; }
+
+.in-work {
+  background: #FFF56F; }
+
+.fresh {
+  background: #C7FF89; }
+
 .athlete-card {
   width: 100%;
-  background-color: linear-gradient(-180deg, #9AECFF 0%, #6096FF 100%);
+  background-image: linear-gradient(-180deg, #9AECFF 0%, #6096FF 100%);
   box-shadow: 5px 5px 25px 0 rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   min-width: 250px;
@@ -218,5 +249,19 @@ body {
   border-radius: 25px 25px 0 0;
   display: flex;
   align-items: center; }
+
+.athlete-card-data {
+  height: 400px;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; }
+  .athlete-card-data p {
+    font-size: 14px;
+    color: #b4aaf0; }
+
+.workout-container {
+  padding: 20px;
+  display: inline-block; }
 
 /*# sourceMappingURL=main.css.map */

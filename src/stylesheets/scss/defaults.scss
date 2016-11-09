@@ -1,8 +1,19 @@
+h1 {
+  font-size: 24px;
+  font-family: $primaryFont;
+  color: $primaryColor1;
+}
+
+p {
+  font-size: 14px;
+  color: $primaryColor3;
+}
+
 button {
   background-image: $buttonGradientActive;
   border: 3px solid rgba(177, 242, 247, 0.75);
   border-radius: 50px;
-  color: $secondaryFontColor;
+  color: $primaryColor1;
   font-size: 1.1em;
   font-family: $primaryFont;
   margin: 10px;
@@ -28,7 +39,7 @@ input {
   background: rgba(31,135,226,0.60);
   border: none;
   border-radius: 10px;
-  color: $secondaryFontColor;
+  color: $primaryColor1;
   font-size: 1.1em;
   margin: 10px;
   padding: 12px;
@@ -45,5 +56,5 @@ input::placeholder {
 input:focus {
   background: rgba(31,135,226,0.90);
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.10);
-  color: $secondaryFontColor;
+  color: $primaryColor1;
 }

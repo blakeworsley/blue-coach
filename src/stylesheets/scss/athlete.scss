@@ -1,6 +1,6 @@
 .athlete-card {
   width: 100%;
-  background-color: $primaryGradient1;
+  background-image: $primaryGradient1;
   box-shadow: $primaryBoxShadow;
   border-radius: 25px;
   min-width: 250px;
@@ -15,4 +15,16 @@
   border-radius: 25px 25px 0 0;
   display: flex;
   align-items: center;
+}
+
+.athlete-card-data {
+  height: 400px;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  p {
+    font-size: 14px;
+    color: $primaryColor3Light;
+  }
 }

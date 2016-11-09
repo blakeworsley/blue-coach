@@ -1,0 +1,22 @@
+.athletes-name {
+  width: 100%;
+  padding: 10px;
+  background: $ratingColor1;
+  font-family: $primaryFont;
+  opacity: 0.9;
+}
+
+.athletes-name:hover {
+  cursor: pointer;
+  opacity: 1
+}
+
+.tired {
+  background: $ratingColor3;
+}
+.in-work {
+  background: $ratingColor2;
+}
+.fresh {
+  background: $ratingColor1;
+}

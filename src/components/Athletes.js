@@ -8,7 +8,8 @@ class Athletes extends Component {
   render(){
     const {firstName, lastName, email, teamName, selectedAthlete } = this.props;
     return (
-      <li onClick={() => selectedAthlete(firstName, lastName, teamName, email)}>
+      <li className="athletes-name" 
+        onClick={() => selectedAthlete(firstName, lastName, teamName, email)}>
         {`${firstName} ${lastName}`}
       </li>
     )
