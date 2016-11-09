@@ -16,7 +16,10 @@ export class Navigation extends Component {
             <Link to="/">Home </Link>
             <Link to="/dashboard">Dashboard </Link>
             <p><strong>{username}</strong></p>
-            <button onClick={e => logOut()}>Log Out</button>
+            <button className="button-primary"
+              onClick={e => logOut()}>
+              Log Out
+            </button>
           </nav>
         </header>
       );

@@ -34,10 +34,16 @@ class Login extends Component {
               placeholder='Password'
               type='password'
             />
-            <button
+            <button className="button-primary"
               disabled={(status === 'AWAITING_AUTH_RESPONSE')}
-            >Log In</button>
-            <Link to={"/register"}><button>Register</button></Link>
+            >
+              Log In
+            </button>
+            <Link to={"/register"}>
+              <button className="button-primary">
+                Register
+              </button>
+            </Link>
           </form>
       );
     }

@@ -9,8 +9,10 @@ class Athlete extends Component {
 
 
   loadData(range){
+    // let average;
     return(
       range.map((data) => {
+        // average = average + Math.round((+mental + +performance + +physical) / 3);
         return (
           <Workout
             key={data.date}
@@ -21,6 +23,7 @@ class Athlete extends Component {
           />
         )
       })
+      // return average;
     )
   }
 
@@ -32,15 +35,19 @@ class Athlete extends Component {
   }
 
   render() {
-    const { firstName, lastName, feedback, dayView, weekView, monthView } = this.props;
+    const { firstName, lastName, feedback, view, dayView, weekView, monthView,
+            activeClass, weekActive, monthActive } = this.props;
     return (
       <section className="athlete-card">
         <header className="athlete-card-header">
           <h1 className="athlete-card-name">{firstName} {lastName}</h1>
           <nav className="athlete-card-nav">
-            <button onClick={() => dayView()}>Daily</button>
-            <button onClick={() => weekView()}>Weekly</button>
-            <button onClick={() => monthView()}>Monthly</button>
+            <button className={'button-secondary ' + ((activeClass === 'day-active') ? activeClass : null)}
+              onClick={() => dayView()}>Daily</button>
+            <button className={'button-secondary ' + ((activeClass === 'week-active') ? activeClass : null)}
+              onClick={() => weekView()}>Weekly</button>
+            <button className={'button-secondary ' + ((activeClass === 'month-active') ? activeClass : null)}
+              onClick={() => monthView()}>Monthly</button>
           </nav>
         </header>
         <ul className="athlete-card-data">
@@ -63,25 +70,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(Athlete);
 
 
 
-
-
-
-
-
-
-
-    //
-    //
-    //
-    // let previousDay = feedback.previousDay ?
-    //   feedback.previousDay.map((data) => {
-    //     return (
-    //       <Workout
-    //         key={data.date}
-    //         date={data.date}
-    //         mental={data.mental}
-    //         performance={data.performance}
-    //         physical={data.physical}
-    //       />
-    //     )
-    //   }) : null
+//
+//
+//
+//
+//
+// <button  className={'button-secondary ' + ((view === 'DAY_VIEW') ? activeClass : null)}
+//   onClick={() => dayView()}>Daily</button>
+{/* <button className={(view === 'DAY_VIEW') ? ('button-secondary ' + activeClass) : 'button-secondary'}
+  onClick={() => dayView()}>Daily</button>
+<button className={'button-secondary ' + ((view === 'WEEK_VIEW') ? activeClass : null)}
+  onClick={() => weekView()}>Weekly</button>
+<button className={'button-secondary ' + ((view === 'MONTH_VIEW') ? activeClass : null)}
+  onClick={() => monthView()}>Monthly</button> */}

@@ -55,27 +55,40 @@ p {
   color: #40396A; }
 
 button {
-  background-image: linear-gradient(-180deg, rgba(56, 240, 255, 0.8) 30%, rgba(84, 172, 245, 0.8) 100%);
-  border: 3px solid rgba(177, 242, 247, 0.75);
-  border-radius: 50px;
+  background: none;
   color: #fff;
   font-size: 1.1em;
   font-family: "Open Sans", sans-serif;
+  opacity: 0.9; }
+
+button:hover {
+  opacity: 1; }
+
+button:focus {
+  outline: none; }
+
+button:disabled {
+  opacity: 0.5; }
+
+.button-primary {
+  background-image: linear-gradient(-180deg, rgba(56, 240, 255, 0.8) 30%, rgba(84, 172, 245, 0.8) 100%);
+  border: 3px solid rgba(177, 242, 247, 0.75);
+  border-radius: 50px;
   margin: 10px;
   padding: 8px;
   width: 175px; }
 
-button:hover {
+.button-primary:hover {
   background-image: linear-gradient(-180deg, rgba(56, 240, 255, 0.88) 30%, #54ACF5 100%);
   border: 3px solid #94e4eb; }
 
-button:focus {
+.button-primary:focus {
   background-image: linear-gradient(-180deg, rgba(56, 240, 255, 0.88) 30%, #54ACF5 100%);
   border: 3px solid #94e4eb;
   outline: none; }
 
-button:disabled {
-  background-color: red; }
+.button-secondary {
+  border: none; }
 
 input {
   background: rgba(31, 135, 226, 0.6);
@@ -254,7 +267,9 @@ body {
 
 .athlete-card-name {
   margin: 20px;
-  width: 50%; }
+  width: 50%;
+  font-style: italic;
+  font-family: "Open Sans", sans-serif; }
 
 .athlete-card-nav {
   margin: 20px;
@@ -274,6 +289,9 @@ body {
   .athlete-card-data p {
     font-size: 14px;
     color: #b4aaf0; }
+
+.day-active, .month-active, .week-active {
+  color: red; }
 
 .workout-container {
   padding: 20px;

@@ -24,15 +24,18 @@ export default function athleteReducer(state = initialState.athlete, action) {
       });
     case 'DAY_VIEW':
       return Object.assign({}, state, {
-        view: 'DAY_VIEW'
+        view: 'DAY_VIEW',
+        activeClass: 'day-active'
       });
     case 'WEEK_VIEW':
       return Object.assign({}, state, {
-        view: 'WEEK_VIEW'
+        view: 'WEEK_VIEW',
+        activeClass: 'week-active'
       });
     case 'MONTH_VIEW':
       return Object.assign({}, state, {
-        view: 'MONTH_VIEW'
+        view: 'MONTH_VIEW',
+        activeClass: 'month-active'
       });
     default:
       return state;

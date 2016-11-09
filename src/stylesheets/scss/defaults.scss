@@ -10,42 +10,57 @@ p {
 }
 
 button {
-  background-image: $buttonGradientActive;
-  border: 3px solid rgba(177, 242, 247, 0.75);
-  border-radius: 50px;
+  background: none;
   color: $primaryColor1;
   font-size: 1.1em;
   font-family: $primaryFont;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+.button-primary {
+  background-image: $buttonGradientActive;
+  border: 3px solid rgba(177, 242, 247, 0.75);
+  border-radius: 50px;
   margin: 10px;
   padding: 8px;
   width: 175px;
 }
 
-button:hover {
+.button-primary:hover {
   background-image: $buttonGradientActiveHover;
   border: 3px solid #94e4eb;
 }
 
-button:focus {
+.button-primary:focus {
   background-image: $buttonGradientActiveHover;
   border: 3px solid #94e4eb;
   outline: none;
 }
-button:disabled {
-  background-color: red;
+
+
+
+
+.button-secondary {
+  border: none;
+}
+.button-secondary:hover {
+
 }
 
 input {
-  background: rgba(31,135,226,0.60);
-  border: none;
-  border-radius: 10px;
-  color: $primaryColor1;
-  font-size: 1.1em;
-  margin: 10px;
-  padding: 12px;
-  width: 200px;
-  outline: none;
-  opacity: 0.9;
+  @include input;
 }
 
 input::placeholder {
