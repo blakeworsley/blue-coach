@@ -291,7 +291,8 @@ body {
     color: #b4aaf0; }
 
 .day-active, .month-active, .week-active {
-  font-size: 1.05em;
+  font-weight: bold;
+  color: #70fef1;
   opacity: 1; }
 
 .workout-container {

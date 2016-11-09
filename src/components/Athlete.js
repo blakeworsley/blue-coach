@@ -65,21 +65,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Athlete);
-
-
-
-
-
-//
-//
-//
-//
-//
-// <button  className={'button-secondary ' + ((view === 'DAY_VIEW') ? activeClass : null)}
-//   onClick={() => dayView()}>Daily</button>
-{/* <button className={(view === 'DAY_VIEW') ? ('button-secondary ' + activeClass) : 'button-secondary'}
-  onClick={() => dayView()}>Daily</button>
-<button className={'button-secondary ' + ((view === 'WEEK_VIEW') ? activeClass : null)}
-  onClick={() => weekView()}>Weekly</button>
-<button className={'button-secondary ' + ((view === 'MONTH_VIEW') ? activeClass : null)}
-  onClick={() => monthView()}>Monthly</button> */}
