@@ -7,7 +7,7 @@ class Workout extends Component {
     return (
       <li key={date} className="workout-container">
         <p>Date: {moment(date).format('LLL')}</p>
-        <p>Average: {((+mental + +performance + +physical) / 3)}</p>
+        <p>Average: {Math.round((+mental + +performance + +physical) / 3)}</p>
         <p>Mental: {mental}</p>
         <p>Performance: {performance}</p>
         <p>Physical: {physical}</p>

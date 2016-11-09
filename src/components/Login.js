@@ -25,9 +25,11 @@ class Login extends Component {
           }}
           className="login-form"
           >
+            <h2>Email</h2>
             <input ref={node => { email = node }}
               placeholder='Email'
             />
+            <h2>Password</h2>
             <input ref={node => { password = node }}
               placeholder='Password'
               type='password'

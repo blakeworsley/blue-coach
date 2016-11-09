@@ -12,6 +12,7 @@ export const initialState = {
   },
   athlete: {
     status: 'DESELECTED',
+    view: 'DAY_VIEW',
     feedback: {previousDay: null, previousWeek: null, previousMonth: null, previousSeason: null},
     firstName: null,
     lastName: null,

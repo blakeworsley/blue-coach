@@ -7,6 +7,7 @@ import * as actions from '../actions/athlete';
 
 class Athlete extends Component {
 
+
   loadData(range){
     return(
       range.map((data) => {
@@ -23,20 +24,27 @@ class Athlete extends Component {
     )
   }
 
+  filterView() {
+    const { feedback, view } = this.props;
+    if(view === 'DAY_VIEW') {return this.loadData(feedback.previousDay)}
+    if(view === 'WEEK_VIEW') {return this.loadData(feedback.previousWeek)}
+    if(view === 'MONTH_VIEW') {return this.loadData(feedback.previousMonth)}
+  }
+
   render() {
-    const { firstName, lastName, feedback } = this.props;
+    const { firstName, lastName, feedback, dayView, weekView, monthView } = this.props;
     return (
       <section className="athlete-card">
         <header className="athlete-card-header">
-          <h1>{firstName} {lastName}</h1>
-          <h3>Daily</h3>
-          <h3>Weekly</h3>
-          <h3>Monthly</h3>
+          <h1 className="athlete-card-name">{firstName} {lastName}</h1>
+          <nav className="athlete-card-nav">
+            <button onClick={() => dayView()}>Daily</button>
+            <button onClick={() => weekView()}>Weekly</button>
+            <button onClick={() => monthView()}>Monthly</button>
+          </nav>
         </header>
         <ul className="athlete-card-data">
-          {/* {feedback.previousDay ? this.loadData(feedback.previousDay) : null} */}
-          {feedback.previousWeek ? this.loadData(feedback.previousWeek) : null}
-          {/* {feedback.previousMonth ? this.loadData(feedback.previousMonth) : null} */}
+          {feedback.previousWeek ?  this.filterView() : null}
         </ul>
       </section>
     );
