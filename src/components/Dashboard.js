@@ -37,15 +37,20 @@ class Dashboard extends Component {
       )
     })
     return (
-      <section>
-        <Navigation/>
-        <section>
-          <h1>Coach Dashboard</h1>
-          {renderAthletes}
-        </section>
-        <section>
-          {status}
-          {athletes ? <Athlete /> : <h1>Please select an athlete</h1>}
+      <section className='dashboard'>
+        <header className='dashboard-header'>
+          <Navigation/>
+        </header>
+        <section className='dashboard-container'>
+          <section className='dashboard-athletes-container'>
+            <header className='athletes-container-header'>
+              <h1>SWIMMERS</h1>
+            </header>
+            <ul>
+              {renderAthletes}
+            </ul>
+          </section>
+          {(this.props.athlete.status === 'ATHLETE_SELECTED') ? <Athlete /> : null}
         </section>
       </section>
     );
@@ -55,7 +60,8 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   return {
     athletes: state.athletes,
-    auth: state.auth
+    auth: state.auth,
+    athlete: state.athlete
   };
 };
 

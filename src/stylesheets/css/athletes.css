@@ -1,19 +1,19 @@
 /*
-Error: Undefined variable: "$lighterSecondaryColor".
-        on line 4 of ./src/stylesheets/scss/dashboard.scss
+Error: Undefined variable: "$ratingColor1".
+        on line 4 of ./src/stylesheets/scss/athletes.scss
 
-1: .dashboard {
-2:   display: flex;
-3:   flex-direction: column;
-4:   background: $lighterSecondaryColor;
-5:   width: 100%;
-6:   height: 100%;
-7:   .dashboard-header{
-8:     height: 80px;
-9:     align-items: center;
+1: .athletes-name {
+2:   width: 100%;
+3:   padding: 10px;
+4:   background: $ratingColor1;
+5:   font-family: $primaryFont;
+6:   opacity: 0.9;
+7: }
+8: 
+9: .athletes-name:hover {
 
 Backtrace:
-./src/stylesheets/scss/dashboard.scss:4
+./src/stylesheets/scss/athletes.scss:4
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/script/tree/node.rb:58:in `perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
@@ -66,4 +66,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$lighterSecondaryColor\".\A         on line 4 of ./src/stylesheets/scss/dashboard.scss\A \A 1: .dashboard {\A 2:   display: flex;\A 3:   flex-direction: column;\A 4:   background: $lighterSecondaryColor;\A 5:   width: 100%;\A 6:   height: 100%;\A 7:   .dashboard-header{\A 8:     height: 80px;\A 9:     align-items: center;"; }
+  content: "Error: Undefined variable: \"$ratingColor1\".\A         on line 4 of ./src/stylesheets/scss/athletes.scss\A \A 1: .athletes-name {\A 2:   width: 100%;\A 3:   padding: 10px;\A 4:   background: $ratingColor1;\A 5:   font-family: $primaryFont;\A 6:   opacity: 0.9;\A 7: }\A 8: \A 9: .athletes-name:hover {"; }

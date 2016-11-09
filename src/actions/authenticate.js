@@ -37,6 +37,9 @@ function logIn(emailAddress, password) {
     })
     .catch(error => {
       console.log('ERROR LOGGING IN: ', error);
+      dispatch({
+        type: 'LOGOUT'
+      });
     });
   };
 }

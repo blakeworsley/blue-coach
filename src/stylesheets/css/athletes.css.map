@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,cAAe;EACb,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,wBACd",
+"sources": ["../scss/athletes.scss"],
+"names": [],
+"file": "athletes.css"
+}

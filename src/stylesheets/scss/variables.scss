@@ -1,11 +1,21 @@
 $primaryColor1 : #fff;
+$primaryColor2: #5C72FF;
+$primaryColor3: #40396A;
+$primaryColor3Light: #b4aaf0;
+$darkerPrimaryColor: #3961af;
+$lighterSecondaryColor: rgba(#f1f8ff, 0.75);
+
+$ratingColor1: #C7FF89;
+$ratingColor2: #FFF56F;
+$ratingColor3: #FF6C7E;
+$primaryFontColor: #676767;
+$primaryColor1: #fff;
+
+$primaryBoxShadow: 5px 5px 25px 0 rgba(0,0,0,0.10);
+
 $primaryGradient1: linear-gradient(-180deg, #9AECFF 0%, #6096FF 100%);
+$secondaryGradient: linear-gradient(-180deg, #4D3E9C 0%, #40396A 100%);
 $buttonGradientActive: linear-gradient(-180deg, rgba(56, 240, 255, 0.8) 30%, rgba(84, 172, 245, 0.8) 100%);
 $buttonGradientActiveHover: linear-gradient(-180deg, rgba(56,240,255,0.88) 30%, #54ACF5 100%);
-$primaryColor2: #5C72FF;
-
 $logoFont: 'Lobster', cursive;
-$primaryFontColor: #676767;
-$darkerPrimaryColor: #3961af;
 $primaryFont: 'Open Sans', sans-serif;
-$secondaryFontColor: #fff;

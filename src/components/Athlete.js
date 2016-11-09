@@ -7,11 +7,12 @@ import * as actions from '../actions/athlete';
 
 class Athlete extends Component {
 
-  render() {
-    const { firstName, lastName, feedback } = this.props;
 
-    let previousDay = feedback.previousDay ?
-      feedback.previousDay.map((data) => {
+  loadData(range){
+    // let average;
+    return(
+      range.map((data) => {
+        // average = average + Math.round((+mental + +performance + +physical) / 3);
         return (
           <Workout
             key={data.date}
@@ -21,12 +22,36 @@ class Athlete extends Component {
             physical={data.physical}
           />
         )
-      }) : null
+      })
+      // return average;
+    )
+  }
+
+  filterView() {
+    const { feedback, view } = this.props;
+    if(view === 'DAY_VIEW') {return this.loadData(feedback.previousDay)}
+    if(view === 'WEEK_VIEW') {return this.loadData(feedback.previousWeek)}
+    if(view === 'MONTH_VIEW') {return this.loadData(feedback.previousMonth)}
+  }
+
+  render() {
+    const { firstName, lastName, feedback, view, dayView, weekView, monthView,
+            activeClass, weekActive, monthActive } = this.props;
     return (
-      <section>
-        <h1>{firstName} {lastName}</h1>
-        <ul>
-          {feedback.previousDay ? previousDay : null}
+      <section className="athlete-card">
+        <header className="athlete-card-header">
+          <h1 className="athlete-card-name">{firstName} {lastName}</h1>
+          <nav className="athlete-card-nav">
+            <button className={'button-secondary ' + ((activeClass === 'day-active') ? activeClass : null)}
+              onClick={() => dayView()}>Daily</button>
+            <button className={'button-secondary ' + ((activeClass === 'week-active') ? activeClass : null)}
+              onClick={() => weekView()}>Weekly</button>
+            <button className={'button-secondary ' + ((activeClass === 'month-active') ? activeClass : null)}
+              onClick={() => monthView()}>Monthly</button>
+          </nav>
+        </header>
+        <ul className="athlete-card-data">
+          {feedback.previousWeek ?  this.filterView() : null}
         </ul>
       </section>
     );

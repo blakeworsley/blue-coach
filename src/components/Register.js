@@ -28,8 +28,7 @@ class Register extends Component {
     })
     .then(() => {
       firebase.auth().currentUser.updateProfile({
-        displayName: `${this.formatName(firstName)} ${this.formatName(lastName)}`,
-        teamName: teamName
+        displayName: `${this.formatName(firstName)} ${this.formatName(lastName)}`
       });
     })
     .then(() => {
@@ -76,10 +75,16 @@ class Register extends Component {
           onChange={(event) => this.setState({teamName: event.target.value})}
           placeholder='Team Name'
         />
-        <button onClick={() => {this.handleNewUser()} }>
+        <button className="button-primary"
+          onClick={() => {this.handleNewUser()} }>
           Register
         </button>
-        <Link to={"/login"}><button>Back</button></Link>
+        <Link to={"/login"}>
+          <button
+            className="button-primary">
+            Back
+          </button>
+        </Link>
       </section>
     );
   }

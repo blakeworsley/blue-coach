@@ -11,11 +11,15 @@ export class Navigation extends Component {
     if (status === 'LOGGED_IN') {
       return (
         <header className="auth-header">
-          <nav>
+          <h1 className="logo-small">blue</h1>
+          <nav className="auth-header-nav">
             <Link to="/">Home </Link>
             <Link to="/dashboard">Dashboard </Link>
-            <p>Logged in as <strong>{username}</strong></p>
-            <button onClick={e => logOut()}>Log Out</button>
+            <p><strong>{username}</strong></p>
+            <button className="button-primary"
+              onClick={e => logOut()}>
+              Log Out
+            </button>
           </nav>
         </header>
       );

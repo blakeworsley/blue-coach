@@ -25,17 +25,25 @@ class Login extends Component {
           }}
           className="login-form"
           >
+            <h2>Email</h2>
             <input ref={node => { email = node }}
               placeholder='Email'
             />
+            <h2>Password</h2>
             <input ref={node => { password = node }}
               placeholder='Password'
               type='password'
             />
-            <button
+            <button className="button-primary"
               disabled={(status === 'AWAITING_AUTH_RESPONSE')}
-            >Log In</button>
-            <Link to={"/register"}><button>Register</button></Link>
+            >
+              Log In
+            </button>
+            <Link to={"/register"}>
+              <button className="button-primary">
+                Register
+              </button>
+            </Link>
           </form>
       );
     }

@@ -40,6 +40,33 @@ function selectedAthlete(firstName, lastName, teamName, emailAddress) {
   };
 }
 
+function dayView() {
+  return (dispatch) => {
+    dispatch({
+      type: 'DAY_VIEW'
+    });
+  };
+}
+
+function weekView() {
+  return (dispatch) => {
+    dispatch({
+      type: 'WEEK_VIEW'
+    });
+  };
+}
+
+function monthView() {
+  return (dispatch) => {
+    dispatch({
+      type: 'MONTH_VIEW'
+    });
+  };
+}
+
 export {
-  selectedAthlete
+  selectedAthlete,
+  dayView,
+  weekView,
+  monthView
 };

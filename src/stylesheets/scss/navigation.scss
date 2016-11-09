@@ -1,12 +1,16 @@
 .auth-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100vw;
   display: flex;
-  nav {
-    margin-left: auto;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  .logo-small {
     display: flex;
-    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .auth-header-nav{
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }

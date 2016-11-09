@@ -1,12 +1,15 @@
 .auth-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100vw;
-  display: flex; }
-  .auth-header nav {
-    margin-left: auto;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px; }
+  .auth-header .logo-small {
     display: flex;
-    align-items: flex-end; }
+    justify-content: flex-end; }
+  .auth-header .auth-header-nav {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
 
 /*# sourceMappingURL=navigation.css.map */

@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,UAAW;EACT,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;;AAGrB,8BAA+B;EAC7B,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,UAAU;EACvB,KAAK,EAAE,KAAK",
+"sources": ["../scss/dashboard.scss"],
 "names": [],
 "file": "dashboard.css"
 }

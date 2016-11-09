@@ -8,11 +8,10 @@ class Athletes extends Component {
   render(){
     const {firstName, lastName, email, teamName, selectedAthlete } = this.props;
     return (
-      <section>
-        <h1 onClick={() => selectedAthlete(firstName, lastName, teamName, email)}>
-          {`${firstName} ${lastName}`}
-        </h1>
-      </section>
+      <li className="athletes-name" 
+        onClick={() => selectedAthlete(firstName, lastName, teamName, email)}>
+        {`${firstName} ${lastName}`}
+      </li>
     )
   }
 }
