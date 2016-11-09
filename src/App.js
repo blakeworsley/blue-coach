@@ -24,8 +24,8 @@ class App extends Component {
           role="presentation"
           />
           <h1 className="logo">blue</h1>
-          <Link to="/login"><button>Login</button></Link>
-          <Link to="/register"><button>Register</button></Link>
+          <Link to="/login"><button className="button-primary">Login</button></Link>
+          <Link to="/register"><button className="button-primary">Register</button></Link>
         </section>
       );
     }

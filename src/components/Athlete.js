@@ -7,12 +7,14 @@ import * as actions from '../actions/athlete';
 
 class Athlete extends Component {
 
+  // average = average + Math.round((+mental + +performance + +physical) / 3);
+  
+
 
   loadData(range){
     // let average;
     return(
       range.map((data) => {
-        // average = average + Math.round((+mental + +performance + +physical) / 3);
         return (
           <Workout
             key={data.date}
