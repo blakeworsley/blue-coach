@@ -74,6 +74,7 @@ class Register extends Component {
           onChange={(event) => this.setState({password: event.target.value})}
           placeholder='Password'
           type='password'
+          className="register-password"
         />
         <h2>Team</h2>
         <input value={teamName}

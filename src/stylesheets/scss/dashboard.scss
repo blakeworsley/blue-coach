@@ -40,3 +40,10 @@
     width: 230px;
   }
 }
+
+@media (max-width: 600px) {
+  .dashboard-container {
+    flex-direction: column;
+    padding: 0;
+  }
+}

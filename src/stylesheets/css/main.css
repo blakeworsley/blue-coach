@@ -164,6 +164,11 @@ body {
   mix-blend-mode: lighten;
   opacity: 0.7; }
 
+@media (max-width: 600px) {
+  .app {
+    height: auto;
+    min-height: 100vh;
+    width: auto; } }
 .login-form {
   font-family: "Open Sans", sans-serif;
   font-size: 1.2em;
@@ -183,6 +188,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center; }
+
+.register-password:after {
+  content: "Must be 6 characters"; }
 
 .dashboard {
   display: flex;
@@ -222,6 +230,10 @@ body {
   .dashboard-athletes-container ul {
     width: 230px; }
 
+@media (max-width: 600px) {
+  .dashboard-container {
+    flex-direction: column;
+    padding: 0; } }
 .auth-header {
   display: flex;
   align-items: center;
@@ -300,11 +312,24 @@ body {
     font-size: 14px;
     color: #b4aaf0; }
 
+.athlete-no-data {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2em;
+  color: #fff;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 100%; }
+
 .day-active, .month-active, .week-active {
   font-weight: bold;
   color: #70fef1;
   opacity: 1; }
 
+@media (max-width: 600px) {
+  .athlete-card {
+    min-width: inherit;
+    height: inherit; } }
 .workout-container {
   padding: 20px;
   display: inline-block; }

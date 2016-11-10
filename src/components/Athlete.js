@@ -8,16 +8,15 @@ import * as actions from '../actions/athlete';
 class Athlete extends Component {
 
   // average = average + Math.round((+mental + +performance + +physical) / 3);
-
-
+  // let average;
+    // if(!range) {return()}
+    // return average;
 
   loadData(range){
-    // let average;
     return(
       range.map((data) => {
         return (
-          <Workout
-            key={data.date}
+          <Workout key={data.date}
             date={data.date}
             mental={data.mental}
             performance={data.performance}
@@ -25,20 +24,37 @@ class Athlete extends Component {
           />
         )
       })
-      // return average;
     )
   }
 
   filterView() {
     const { feedback, view } = this.props;
-    if(view === 'DAY_VIEW') {return this.loadData(feedback.previousDay)}
-    if(view === 'WEEK_VIEW') {return this.loadData(feedback.previousWeek)}
-    if(view === 'MONTH_VIEW') {return this.loadData(feedback.previousMonth)}
+    if(view === 'DAY_VIEW') {
+      return (
+        feedback.previousDay.length ?
+        this.loadData(feedback.previousDay) :
+        <h1 className="athlete-no-data">No Athlete Data</h1>
+      )
+    }
+    if(view === 'WEEK_VIEW') {
+      return (
+        feedback.previousWeek.length ?
+        this.loadData(feedback.previousWeek) :
+        <h1 className="athlete-no-data">No Athlete Data</h1>
+      )
+    }
+    if(view === 'MONTH_VIEW') {
+      return (
+        feedback.previousMonth.length ?
+        this.loadData(feedback.previousMonth) :
+        <h1 className="athlete-no-data">No Athlete Data</h1>
+      )
+    }
   }
 
   render() {
-    const { firstName, lastName, feedback, view, dayView, weekView, monthView,
-            activeClass, weekActive, monthActive } = this.props;
+    const { firstName, lastName, feedback, dayView, weekView, monthView,
+            activeClass } = this.props;
     return (
       <section className="athlete-card">
         <header className="athlete-card-header">
@@ -59,7 +75,7 @@ class Athlete extends Component {
           </nav>
         </header>
         <ul className="athlete-card-data">
-          {feedback.previousWeek ?  this.filterView() : null}
+          {(feedback.previousMonth) ?  this.filterView() : null}
         </ul>
       </section>
     );

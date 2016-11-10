@@ -3,5 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
+.register-password:after {
+  content: "Must be 6 characters";
 }
