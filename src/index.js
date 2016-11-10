@@ -18,7 +18,14 @@ import './stylesheets/css/main.css';
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter history={history}>
+
       <section className="app">
+        <img src="./img/wave1.svg" className="wave1"
+        role="presentation"
+        />
+        <img src="./img/wave2.svg" className="wave2"
+        role="presentation"
+        />
         <Match exactly pattern="/" component={App} />
         <Match exactly pattern="/dashboard" component={Dashboard} />
         <Match exactly pattern="/login" component={Login} />

@@ -91,10 +91,10 @@ button:disabled {
   border: none; }
 
 input {
-  background: rgba(31, 135, 226, 0.6);
+  background: #e6e6e6;
   border: none;
   border-radius: 10px;
-  color: #fff;
+  color: #40396A;
   font-size: 1.1em;
   margin: 10px;
   padding: 12px;
@@ -103,16 +103,16 @@ input {
   opacity: 0.9; }
 
 input::placeholder {
-  color: #3961af;
+  color: #7a99d4;
   font-family: "Open Sans", sans-serif; }
 
 input:focus {
-  background: rgba(31, 135, 226, 0.9);
+  background: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-  color: #fff; }
+  color: #40396A; }
 
 body {
-  background-image: linear-gradient(-180deg, #9AECFF 0%, #6096FF 100%);
+  background-image: linear-gradient(-180deg, #b8d0ff 0%, #3d85d1 100%);
   font-family: sans-serif;
   margin: 0;
   padding: 0; }
@@ -164,15 +164,39 @@ body {
   mix-blend-mode: lighten;
   opacity: 0.7; }
 
-.login-form {
+@media (max-width: 600px) {
+  .app {
+    height: auto;
+    min-height: 100vh;
+    width: auto; } }
+.login-container {
   display: flex;
   flex-direction: column;
   align-items: center; }
 
+.login-form {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2em;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 25px 25px;
+  background-color: #5C72FF; }
+  .login-form h2 {
+    margin-top: 10px; }
+
 .register-form {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2em;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center; }
+
+.register-password:after {
+  content: "Must be 6 characters"; }
 
 .dashboard {
   display: flex;
@@ -180,10 +204,21 @@ body {
   background: rgba(241, 248, 255, 0.75);
   width: 100%;
   height: 100%; }
-  .dashboard .dashboard-header {
-    height: 80px;
-    align-items: center;
-    display: flex; }
+
+.dashboard-header {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2em;
+  color: #fff;
+  height: 80px;
+  align-items: center;
+  display: flex;
+  color: #40396A;
+  font-size: 0.9em; }
+  .dashboard-header .button-secondary {
+    border-radius: 8px;
+    font-size: 0.9em;
+    background-color: #5C72FF;
+    margin: 10px; }
 
 .dashboard-container {
   height: 100%;
@@ -192,7 +227,7 @@ body {
   padding: 20px; }
 
 .dashboard-athletes-container {
-  background-image: linear-gradient(-180deg, #9AECFF 0%, #6096FF 100%);
+  background-image: linear-gradient(-180deg, #b8d0ff 0%, #3d85d1 100%);
   box-shadow: 5px 5px 25px 0 rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   display: flex;
@@ -212,6 +247,10 @@ body {
   .dashboard-athletes-container ul {
     width: 230px; }
 
+@media (max-width: 600px) {
+  .dashboard-container {
+    flex-direction: column;
+    padding: 0; } }
 .auth-header {
   display: flex;
   align-items: center;
@@ -248,7 +287,7 @@ body {
 
 .athlete-card {
   width: 100%;
-  background-image: linear-gradient(-180deg, #9AECFF 0%, #6096FF 100%);
+  background-image: linear-gradient(-180deg, #b8d0ff 0%, #3d85d1 100%);
   box-shadow: 5px 5px 25px 0 rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   min-width: 250px;
@@ -290,13 +329,29 @@ body {
     font-size: 14px;
     color: #b4aaf0; }
 
+.athlete-no-data {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2em;
+  color: #fff;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 100%; }
+
 .day-active, .month-active, .week-active {
   font-weight: bold;
   color: #70fef1;
   opacity: 1; }
 
+@media (max-width: 600px) {
+  .athlete-card {
+    min-width: inherit;
+    height: inherit; } }
 .workout-container {
   padding: 20px;
   display: inline-block; }
+
+.three {
+  color: #FF6C7E; }
 
 /*# sourceMappingURL=main.css.map */

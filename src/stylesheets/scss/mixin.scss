@@ -1,12 +1,18 @@
 @mixin input {
-  background: rgba(31,135,226,0.60);
+  background: darken($primaryColor1, 10);
   border: none;
   border-radius: 10px;
-  color: $primaryColor1;
+  color: $primaryColor3;
   font-size: 1.1em;
   margin: 10px;
   padding: 12px;
   width: 200px;
   outline: none;
   opacity: 0.9;
+}
+
+@mixin baseFont {
+  font-family: $primaryFont;
+  font-size: 1.2em;
+  color: $primaryColor1;
 }

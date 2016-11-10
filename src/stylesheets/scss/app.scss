@@ -57,3 +57,13 @@ body {
   mix-blend-mode: lighten;
   opacity: 0.7;
 }
+
+
+@media (max-width: 600px) {
+  .app {
+    height: auto;
+    min-height: 100vh;
+    width: auto;
+  }
+
+}

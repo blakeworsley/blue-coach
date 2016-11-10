@@ -11,20 +11,19 @@ class Login extends Component {
     let email;
     let password;
 
-    if (status === 'LOGGED_IN') {
+    if (status === 'LOGGED_IN') { return ( <Redirect to='/dashboard' /> ); }
+    else {
       return (
-        <Redirect to='/dashboard' />
-      );
-    } else {
-      return (
-          <form onSubmit={e => {
+        <section className="login-container">
+          <form className="login-form"
+            onSubmit={e => {
             e.preventDefault()
             logIn(email.value, password.value)
             email.value = ''
             password.value = ''
           }}
-          className="login-form"
           >
+            <h1 className="logo">blue</h1>
             <h2>Email</h2>
             <input ref={node => { email = node }}
               placeholder='Email'
@@ -39,12 +38,13 @@ class Login extends Component {
             >
               Log In
             </button>
-            <Link to={"/register"}>
-              <button className="button-primary">
-                Register
-              </button>
-            </Link>
           </form>
+          <Link to={"/register"}>
+            <button className="button-primary">
+              Register
+            </button>
+          </Link>
+        </section>
       );
     }
   }

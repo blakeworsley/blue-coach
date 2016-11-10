@@ -49,8 +49,24 @@
   }
 }
 
+.athlete-no-data {
+  @include baseFont;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .day-active, .month-active, .week-active {
   font-weight: bold;
   color: rgb(112, 254, 241);
   opacity: 1;
+}
+
+
+@media (max-width: 600px) {
+  .athlete-card {
+    min-width: inherit;
+    height: inherit;
+  }
 }
