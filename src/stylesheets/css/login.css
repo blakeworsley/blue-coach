@@ -1,19 +1,23 @@
 /*
 Error: Undefined mixin 'baseFont'.
-        on line 2 of ./src/stylesheets/scss/login.scss, in `baseFont'
-        from line 2 of ./src/stylesheets/scss/login.scss
+        on line 7 of ./src/stylesheets/scss/login.scss, in `baseFont'
+        from line 7 of ./src/stylesheets/scss/login.scss
 
-1: .login-form {
-2:   @include baseFont;
-3:   display: flex;
-4:   flex-direction: column;
-5:   align-items: center;
-6:   border-radius: 10px;
-7:   padding: 50px 25px;
+2:   display: flex;
+3:   flex-direction: column;
+4:   align-items: center;
+5: }
+6: .login-form {
+7:   @include baseFont;
+8:   display: flex;
+9:   flex-direction: column;
+10:   align-items: center;
+11:   border-radius: 10px;
+12:   padding: 25px 25px;
 
 Backtrace:
-./src/stylesheets/scss/login.scss:2:in `baseFont'
-./src/stylesheets/scss/login.scss:2
+./src/stylesheets/scss/login.scss:7:in `baseFont'
+./src/stylesheets/scss/login.scss:7
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:351:in `block in visit_mixin'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:98:in `block in with_mixin'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
@@ -68,4 +72,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'baseFont'.\A         on line 2 of ./src/stylesheets/scss/login.scss, in `baseFont'\A         from line 2 of ./src/stylesheets/scss/login.scss\A \A 1: .login-form {\A 2:   @include baseFont;\A 3:   display: flex;\A 4:   flex-direction: column;\A 5:   align-items: center;\A 6:   border-radius: 10px;\A 7:   padding: 50px 25px;"; }
+  content: "Error: Undefined mixin 'baseFont'.\A         on line 7 of ./src/stylesheets/scss/login.scss, in `baseFont'\A         from line 7 of ./src/stylesheets/scss/login.scss\A \A 2:   display: flex;\A 3:   flex-direction: column;\A 4:   align-items: center;\A 5: }\A 6: .login-form {\A 7:   @include baseFont;\A 8:   display: flex;\A 9:   flex-direction: column;\A 10:   align-items: center;\A 11:   border-radius: 10px;\A 12:   padding: 25px 25px;"; }

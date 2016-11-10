@@ -14,34 +14,37 @@ class Login extends Component {
     if (status === 'LOGGED_IN') { return ( <Redirect to='/dashboard' /> ); }
     else {
       return (
-        <form className="login-form"
-          onSubmit={e => {
-          e.preventDefault()
-          logIn(email.value, password.value)
-          email.value = ''
-          password.value = ''
-        }}
-        >
-          <h2>Email</h2>
-          <input ref={node => { email = node }}
-            placeholder='Email'
-          />
-          <h2>Password</h2>
-          <input ref={node => { password = node }}
-            placeholder='Password'
-            type='password'
-          />
-          <button className="button-primary"
-            disabled={(status === 'AWAITING_AUTH_RESPONSE')}
+        <section className="login-container">
+          <form className="login-form"
+            onSubmit={e => {
+            e.preventDefault()
+            logIn(email.value, password.value)
+            email.value = ''
+            password.value = ''
+          }}
           >
-            Log In
-          </button>
+            <h1 className="logo">blue</h1>
+            <h2>Email</h2>
+            <input ref={node => { email = node }}
+              placeholder='Email'
+            />
+            <h2>Password</h2>
+            <input ref={node => { password = node }}
+              placeholder='Password'
+              type='password'
+            />
+            <button className="button-primary"
+              disabled={(status === 'AWAITING_AUTH_RESPONSE')}
+            >
+              Log In
+            </button>
+          </form>
           <Link to={"/register"}>
             <button className="button-primary">
               Register
             </button>
           </Link>
-        </form>
+        </section>
       );
     }
   }

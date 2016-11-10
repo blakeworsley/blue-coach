@@ -3,7 +3,6 @@ import moment from 'moment';
 
 class Workout extends Component {
 
-
   render() {
     const { date, mental, performance, physical } = this.props;
     return (

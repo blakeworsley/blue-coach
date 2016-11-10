@@ -49,9 +49,6 @@ button:disabled {
   outline: none;
 }
 
-
-
-
 .button-secondary {
   border: none;
 }
@@ -64,12 +61,12 @@ input {
 }
 
 input::placeholder {
-  color: $darkerPrimaryColor;
+  color: lighten($darkerPrimaryColor, 20);
   font-family: $primaryFont;
 }
 
 input:focus {
-  background: rgba(31,135,226,0.90);
+  background: $primaryColor1;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.10);
-  color: $primaryColor1;
+  color: $primaryColor3;
 }
