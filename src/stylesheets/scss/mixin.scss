@@ -10,3 +10,9 @@
   outline: none;
   opacity: 0.9;
 }
+
+@mixin baseFont {
+  font-family: $primaryFont;
+  font-size: 1.2em;
+  color: $primaryColor1;
+}

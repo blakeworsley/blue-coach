@@ -1,5 +1,7 @@
 .register-form {
+  @include baseFont;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }

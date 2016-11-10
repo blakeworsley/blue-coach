@@ -112,7 +112,7 @@ input:focus {
   color: #fff; }
 
 body {
-  background-image: linear-gradient(-180deg, #9AECFF 0%, #6096FF 100%);
+  background-image: linear-gradient(-180deg, #b8d0ff 0%, #3d85d1 100%);
   font-family: sans-serif;
   margin: 0;
   padding: 0; }
@@ -165,11 +165,21 @@ body {
   opacity: 0.7; }
 
 .login-form {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2em;
+  color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  border-radius: 10px;
+  padding: 50px 25px; }
+  .login-form h2 {
+    margin-top: 10px; }
 
 .register-form {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2em;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center; }
@@ -192,7 +202,7 @@ body {
   padding: 20px; }
 
 .dashboard-athletes-container {
-  background-image: linear-gradient(-180deg, #9AECFF 0%, #6096FF 100%);
+  background-image: linear-gradient(-180deg, #b8d0ff 0%, #3d85d1 100%);
   box-shadow: 5px 5px 25px 0 rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   display: flex;
@@ -248,7 +258,7 @@ body {
 
 .athlete-card {
   width: 100%;
-  background-image: linear-gradient(-180deg, #9AECFF 0%, #6096FF 100%);
+  background-image: linear-gradient(-180deg, #b8d0ff 0%, #3d85d1 100%);
   box-shadow: 5px 5px 25px 0 rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   min-width: 250px;

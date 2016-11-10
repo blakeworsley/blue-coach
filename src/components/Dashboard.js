@@ -6,6 +6,7 @@ import Athletes from './Athletes';
 import Athlete from './Athlete';
 import Navigation from './Navigation';
 import firebase from '../firebase';
+import { Redirect } from 'react-router';
 
 import * as actions from '../actions/athletes';
 
@@ -25,7 +26,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { status, athletes } = this.props.athletes;
+    const { athletes } = this.props.athletes;
     const renderAthletes = map(athletes, (athlete) => {
       return(
         <Athletes key={athlete.firstName + athlete.lastName + athlete.teamName}
@@ -36,6 +37,12 @@ class Dashboard extends Component {
         />
       )
     })
+
+    if (this.props.auth.status !== 'LOGGED_IN') {
+      return (
+        <Redirect to='/login' />
+      );
+    }
     return (
       <section className='dashboard'>
         <header className='dashboard-header'>

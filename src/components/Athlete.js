@@ -8,7 +8,7 @@ import * as actions from '../actions/athlete';
 class Athlete extends Component {
 
   // average = average + Math.round((+mental + +performance + +physical) / 3);
-  
+
 
 
   loadData(range){
@@ -45,11 +45,17 @@ class Athlete extends Component {
           <h1 className="athlete-card-name">{firstName} {lastName}</h1>
           <nav className="athlete-card-nav">
             <button className={'button-secondary ' + ((activeClass === 'day-active') ? activeClass : null)}
-              onClick={() => dayView()}>Daily</button>
+              onClick={() => dayView()}>
+              Daily
+            </button>
             <button className={'button-secondary ' + ((activeClass === 'week-active') ? activeClass : null)}
-              onClick={() => weekView()}>Weekly</button>
+              onClick={() => weekView()}>
+              Weekly
+            </button>
             <button className={'button-secondary ' + ((activeClass === 'month-active') ? activeClass : null)}
-              onClick={() => monthView()}>Monthly</button>
+              onClick={() => monthView()}>
+              Monthly
+            </button>
           </nav>
         </header>
         <ul className="athlete-card-data">

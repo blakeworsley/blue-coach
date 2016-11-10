@@ -13,10 +13,8 @@ export class Navigation extends Component {
         <header className="auth-header">
           <h1 className="logo-small">blue</h1>
           <nav className="auth-header-nav">
-            <Link to="/">Home </Link>
-            <Link to="/dashboard">Dashboard </Link>
             <p><strong>{username}</strong></p>
-            <button className="button-primary"
+            <button className="button-secondary"
               onClick={e => logOut()}>
               Log Out
             </button>

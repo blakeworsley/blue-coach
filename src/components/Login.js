@@ -11,11 +11,8 @@ class Login extends Component {
     let email;
     let password;
 
-    if (status === 'LOGGED_IN') {
-      return (
-        <Redirect to='/dashboard' />
-      );
-    } else {
+    if (status === 'LOGGED_IN') { return ( <Redirect to='/dashboard' /> ); }
+    else {
       return (
           <form onSubmit={e => {
             e.preventDefault()
@@ -24,6 +21,7 @@ class Login extends Component {
             password.value = ''
           }}
           className="login-form"
+          onChange={console.log(email, password)}
           >
             <h2>Email</h2>
             <input ref={node => { email = node }}
