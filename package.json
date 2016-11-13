@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "css-loader": "^0.25.0",
+    "enzyme": "^2.6.0",
     "react-scripts": "0.7.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1"
@@ -15,6 +16,7 @@
     "moment": "^2.15.2",
     "node-sass": "^3.11.2",
     "react": "^15.3.2",
+    "react-chartjs2": "^1.1.0",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^4.0.0-alpha.3",

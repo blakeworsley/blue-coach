@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Workout from './Workout';
+import WeeklyChart from './WeeklyChart';
+
 
 import * as actions from '../actions/athlete';
 
@@ -76,6 +78,9 @@ class Athlete extends Component {
         </header>
         <ul className="athlete-card-data">
           {(feedback.previousMonth) ?  this.filterView() : null}
+
+          <WeeklyChart />
+
         </ul>
       </section>
     );
